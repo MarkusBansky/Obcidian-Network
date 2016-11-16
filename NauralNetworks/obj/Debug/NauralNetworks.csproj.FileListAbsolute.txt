@@ -1,0 +1,12 @@
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NauralNetworks\bin\Debug\NauralNetworks.exe.config
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NauralNetworks\bin\Debug\NauralNetworks.exe
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NauralNetworks\bin\Debug\NauralNetworks.pdb
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NauralNetworks\bin\Debug\Network.dll
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NauralNetworks\bin\Debug\NeuralComponents.dll
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NauralNetworks\bin\Debug\Network.pdb
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NauralNetworks\bin\Debug\NeuralComponents.pdb
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NauralNetworks\obj\Debug\NauralNetworks.csprojResolveAssemblyReference.cache
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NauralNetworks\obj\Debug\NauralNetworks.exe
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NauralNetworks\obj\Debug\NauralNetworks.pdb
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NauralNetworks\bin\Debug\NeuralHelpers.dll
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NauralNetworks\bin\Debug\NeuralHelpers.pdb

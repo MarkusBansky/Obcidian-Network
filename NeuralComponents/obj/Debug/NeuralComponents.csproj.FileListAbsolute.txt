@@ -1,0 +1,7 @@
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NeuralComponents\bin\Debug\NeuralComponents.dll
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NeuralComponents\bin\Debug\NeuralComponents.pdb
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NeuralComponents\obj\Debug\NeuralComponents.csprojResolveAssemblyReference.cache
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NeuralComponents\obj\Debug\NeuralComponents.dll
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NeuralComponents\obj\Debug\NeuralComponents.pdb
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NeuralComponents\bin\Debug\NeuralHelpers.dll
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NeuralComponents\bin\Debug\NeuralHelpers.pdb
