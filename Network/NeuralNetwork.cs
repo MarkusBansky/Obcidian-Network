@@ -1,42 +1,41 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using NeuralComponents.Base;
-using NeuralComponents.Base.Neurons;
-using NeuralComponents.Connections;
+using Network.Base.Connections;
+using Network.Base.Neurons;
 
 namespace Network
 {
-    public class DeepNeuralNetwork
+    public class NeuralNetwork
     {
-        public InputNeuron[] InputNeurons;
-        public OutputNeuron OutputNeuron;
+        private readonly Neuron[] _inputNeurons;
+        private readonly Neuron _outputNeuron;
 
         private readonly List<ComputationalNeuron> _computationalNeurons;
         private readonly List<NeuralConnection> _neuralConnections;
 
-        public DeepNeuralNetwork(int numberOfInputValues)
+        public NeuralNetwork(int numberOfInputValues)
         {
             _computationalNeurons = new List<ComputationalNeuron>();
             _neuralConnections = new List<NeuralConnection>();
 
-            InputNeurons = new InputNeuron[numberOfInputValues];
-            OutputNeuron = new OutputNeuron();
+            _inputNeurons = new Neuron[numberOfInputValues];
+            _outputNeuron = new Neuron();
         }
 
-        public void SetInputValue(int index, double value)
+        #region Overloaded Methods
+        public Neuron this[int index]
         {
-            if(InputNeurons[index] == null)
-                InputNeurons[index] = new InputNeuron();
-
-            InputNeurons[index].Value = value;
+            get { return _inputNeurons[index] ?? (_inputNeurons[index] = new Neuron()); }
+            set { _inputNeurons[index] = value; }
         }
+        #endregion
 
         public double GetOutputValue()
         {
-            return OutputNeuron.Value;
+            return _outputNeuron.Value;
         }
 
-        public void AddComputationalNeuron(ComputationalNeuron neuron)
+        public void AddNeuron(ComputationalNeuron neuron)
         {
             _computationalNeurons.Add(neuron);
         }
@@ -46,24 +45,24 @@ namespace Network
             _neuralConnections.Add(new NeuralConnection(first, second));
         }
 
+        public void AddConnections(int[,] connectionPairsArray)
+        {
+            // TODO: Write connection pairs to connections
+        }
+
         public List<double> GetMultiplierValues()
         {
-            List<double> output = new List<double>();
-
-            foreach(NeuralConnection nc in _neuralConnections)
-                output.Add(nc.Multiplier);
-
-            return output;
+            return _neuralConnections.Select(nc => nc.Multiplier).ToList();
         }
 
         private Neuron GetNeuron(int index)
         {
-            if (index < InputNeurons.Length)
-                return InputNeurons[index];
-            else if (index < _computationalNeurons.Count + InputNeurons.Length)
-                return _computationalNeurons[index - InputNeurons.Length];
+            if (index < _inputNeurons.Length)
+                return _inputNeurons[index];
+            else if (index < _computationalNeurons.Count + _inputNeurons.Length)
+                return _computationalNeurons[index - _inputNeurons.Length];
             else
-                return OutputNeuron;
+                return _outputNeuron;
         }
 
         public void ForwardPropagation()
@@ -87,7 +86,7 @@ namespace Network
             }
 
             // Calculate the output
-            OutputNeuron.Value = _neuralConnections.Where(n => GetNeuron(n.NextNeuron).Guid.Equals(OutputNeuron.Guid)).Sum(nc => GetNeuron(nc.PreviousNeuron).Value * nc.Multiplier);
+            _outputNeuron.Value = _neuralConnections.Where(n => GetNeuron(n.NextNeuron).Guid.Equals(_outputNeuron.Guid)).Sum(nc => GetNeuron(nc.PreviousNeuron).Value * nc.Multiplier);
         }
 
         public void BackPropagation(double target)
@@ -98,7 +97,7 @@ namespace Network
                 List<NeuralConnection> previousConnections = _neuralConnections.Where(nc => GetNeuron(nc.NextNeuron).Guid.Equals(cn.Guid)).ToList();
                 List<NeuralConnection> nextConnections = _neuralConnections.Where(nc => GetNeuron(nc.PreviousNeuron).Guid.Equals(cn.Guid)).ToList();
 
-                double errorMargin = target - OutputNeuron.Value;
+                double errorMargin = target - _outputNeuron.Value;
                 double deltaOutputSum = cn.Invoke() * errorMargin;
 
                 double deltaHiddenSum = nextConnections.Sum(nc => deltaOutputSum / nc.Multiplier * cn.Invoke());
@@ -113,12 +112,12 @@ namespace Network
             // Fixing connections before output
             foreach (NeuralConnection nc in _neuralConnections)
             {
-                if (!GetNeuron(nc.NextNeuron).Guid.Equals(OutputNeuron.Guid)) continue;
+                if (!GetNeuron(nc.NextNeuron).Guid.Equals(_outputNeuron.Guid)) continue;
 
                 ComputationalNeuron cn =
                     _computationalNeurons.Find(c => c.Guid.Equals(GetNeuron(nc.PreviousNeuron).Guid));
 
-                double errorMargin = target - OutputNeuron.Value;
+                double errorMargin = target - _outputNeuron.Value;
                 double deltaSum = cn.Invoke()*errorMargin;
                 double deltaWeight = deltaSum/GetNeuron(nc.PreviousNeuron).Value;
 

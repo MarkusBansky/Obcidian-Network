@@ -50,13 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Network\Network.csproj">
+    <ProjectReference Include="..\Network\ObsidiaNetwork.csproj">
       <Project>{11e3db2b-b888-4e50-a5af-45065fc137f9}</Project>
-      <Name>Network</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NeuralComponents\NeuralComponents.csproj">
-      <Project>{e07718fa-500a-436e-87f3-181250a7e198}</Project>
-      <Name>NeuralComponents</Name>
+      <Name>ObsidiaNetwork</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

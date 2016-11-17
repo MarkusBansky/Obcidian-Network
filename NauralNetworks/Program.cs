@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Network;
-using NeuralComponents.Base.Neurons;
+using Network.Base.Neurons;
 
 namespace NauralNetworks
 {
@@ -13,35 +13,35 @@ namespace NauralNetworks
         {
             // ===== Testing the neural networks
             // Creating network
-            DeepNeuralNetwork network = new DeepNeuralNetwork(2);
+            NeuralNetwork network = new NeuralNetwork(2);
 
             // Adding 4 computational neurons
-            network.AddComputationalNeuron(new ComputationalNeuron
+            network.AddNeuron(new ComputationalNeuron
             {
                 ForwardCalculation = Function,
                 BackwardCalculation = FunctionPrime
             });
-            network.AddComputationalNeuron(new ComputationalNeuron
+            network.AddNeuron(new ComputationalNeuron
             {
                 ForwardCalculation = Function,
                 BackwardCalculation = FunctionPrime
             });
-            network.AddComputationalNeuron(new ComputationalNeuron
+            network.AddNeuron(new ComputationalNeuron
             {
                 ForwardCalculation = Function,
                 BackwardCalculation = FunctionPrime
             });
-            network.AddComputationalNeuron(new ComputationalNeuron
+            network.AddNeuron(new ComputationalNeuron
             {
                 ForwardCalculation = Function,
                 BackwardCalculation = FunctionPrime
             });
-            network.AddComputationalNeuron(new ComputationalNeuron
+            network.AddNeuron(new ComputationalNeuron
             {
                 ForwardCalculation = Function,
                 BackwardCalculation = FunctionPrime
             });
-            network.AddComputationalNeuron(new ComputationalNeuron
+            network.AddNeuron(new ComputationalNeuron
             {
                 ForwardCalculation = Function,
                 BackwardCalculation = FunctionPrime
@@ -86,14 +86,14 @@ namespace NauralNetworks
                 if (generation != 0)
                     network.BackPropagation(values[2]);
 
-                network.SetInputValue(0, values[0]);
-                network.SetInputValue(1, values[1]);
+                network[0].Value = values[0];
+                network[1].Value = values[1];
 
                 network.ForwardPropagation();
-                output = network.OutputNeuron.Value;
+                output = network.GetOutputValue();
 
                 // OUTPUT
-                Print(ref network, generation, false);
+                //Print(ref network, generation, false);
 
                 generation++;
             } while (output > values[2] + epsilon || output < values[2] - epsilon);
@@ -101,28 +101,10 @@ namespace NauralNetworks
             // OUTPUT
             Print(ref network, generation);
 
-            // Check 0, 0, 0
-            network.SetInputValue(0, 0);
-            network.SetInputValue(1, 0);
-            network.ForwardPropagation();
-            Print(ref network, generation);
-
-            // Check 1, 0, 1
-            network.SetInputValue(0, 1);
-            network.SetInputValue(1, 0);
-            network.ForwardPropagation();
-            Print(ref network, generation);
-
-            // Check 0, 1, 1
-            network.SetInputValue(0, 0);
-            network.SetInputValue(1, 1);
-            network.ForwardPropagation();
-            Print(ref network, generation);
-
             Console.ForegroundColor = ConsoleColor.Yellow;
         }
 
-        public static void Print(ref DeepNeuralNetwork network, int generation, bool last = true)
+        public static void Print(ref NeuralNetwork network, int generation, bool last = true)
         {
             if (last)
             {
@@ -137,7 +119,7 @@ namespace NauralNetworks
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Result");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(network.OutputNeuron.Value.ToString("0.0000000000"));
+            Console.WriteLine(network.GetOutputValue().ToString("0.0000000000"));
 
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Multiplier values:");
