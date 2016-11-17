@@ -25,6 +25,3 @@ You can also:
 1. Download library with binaries from github releases page.
 2. Create a new project, or implement the library in existing project.
 3. Use library as you need. (more info on WIKI pages)
-
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
