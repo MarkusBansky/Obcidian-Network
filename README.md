@@ -1,3 +1,4 @@
+![logo](https://www.dropbox.com/s/gcyl94z6vblkvep/Asset%201.png?dl=1)
 # **ObcidiaNetwork** - a simple neural network library
 
 [![downloads](https://img.shields.io/github/downloads/MarkusBansky/NauralNetworks/v0.190.0/total.svg)](MarkusBansky/NauralNetworks)
