@@ -3,8 +3,6 @@
 
 [![downloads](https://img.shields.io/github/downloads/MarkusBansky/NauralNetworks/v0.190.0/total.svg)](MarkusBansky/NauralNetworks)
 [![Issue Count](https://codeclimate.com/github/MarkusBansky/NauralNetworks/badges/issue_count.svg)](https://codeclimate.com/github/MarkusBansky/NauralNetworks)
-[![Test Coverage](https://codeclimate.com/github/MarkusBansky/NauralNetworks/badges/coverage.svg)](https://codeclimate.com/github/MarkusBansky/NauralNetworks/coverage)
-[![Code Climate](https://codeclimate.com/github/MarkusBansky/NauralNetworks/badges/gpa.svg)](https://codeclimate.com/github/MarkusBansky/NauralNetworks)
 
 **ObcidiaNetwork** is a C# library that would help you create your own neural networks.
 
