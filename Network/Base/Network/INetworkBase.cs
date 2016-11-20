@@ -118,7 +118,7 @@ namespace Network.Base.Network
             else
             {
                 double sum = 0;
-                for (int i = 0; i < outputConnections.Count; i++)
+                for (int i = 0; i < targetValues.Length; i++)
                 {
                     sum += -(targetValues[i] - OutputNeurons[i].Value) * neuron.Value *
                            (1 - neuron.Value) * outputConnections[i].Multiplier;
