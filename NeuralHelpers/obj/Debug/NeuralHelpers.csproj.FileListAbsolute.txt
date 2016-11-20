@@ -1,4 +1,0 @@
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NeuralHelpers\bin\Debug\NeuralHelpers.dll
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NeuralHelpers\bin\Debug\NeuralHelpers.pdb
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NeuralHelpers\obj\Debug\NeuralHelpers.dll
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\NeuralHelpers\obj\Debug\NeuralHelpers.pdb

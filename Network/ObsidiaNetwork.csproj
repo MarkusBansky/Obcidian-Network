@@ -41,11 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\Neurons\Neuron.cs" />
-    <Compile Include="Base\Neurons\ComputationalNeuron.cs" />
     <Compile Include="Base\Connections\NeuralConnection.cs" />
     <Compile Include="NeuralNetwork.cs" />
     <Compile Include="Helpers\FixedRandom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Base\Network\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

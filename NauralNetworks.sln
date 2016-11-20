@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.25807.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NauralNetworks", "NauralNetworks\NauralNetworks.csproj", "{34CC80BD-8217-4C42-A2FC-5788C990C985}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObsidiaNetwork", "Network\ObsidiaNetwork.csproj", "{11E3DB2B-B888-4E50-A5AF-45065FC137F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{508AD544-E44A-430E-A5CC-BF43856176B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicalOR", "Samples\LogicalOR\LogicalOR.csproj", "{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,16 +15,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{34CC80BD-8217-4C42-A2FC-5788C990C985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34CC80BD-8217-4C42-A2FC-5788C990C985}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34CC80BD-8217-4C42-A2FC-5788C990C985}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34CC80BD-8217-4C42-A2FC-5788C990C985}.Release|Any CPU.Build.0 = Release|Any CPU
 		{11E3DB2B-B888-4E50-A5AF-45065FC137F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{11E3DB2B-B888-4E50-A5AF-45065FC137F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11E3DB2B-B888-4E50-A5AF-45065FC137F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11E3DB2B-B888-4E50-A5AF-45065FC137F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1} = {508AD544-E44A-430E-A5CC-BF43856176B3}
 	EndGlobalSection
 EndGlobal

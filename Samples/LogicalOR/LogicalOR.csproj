@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E07718FA-500A-436E-87F3-181250A7E198}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NeuralComponents</RootNamespace>
-    <AssemblyName>NeuralComponents</AssemblyName>
+    <RootNamespace>LogicalOR</RootNamespace>
+    <AssemblyName>LogicalOR</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,20 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\Neuron.cs" />
-    <Compile Include="Base\Neurons\ComputationalNeuron.cs" />
-    <Compile Include="Connections\NeuralConnection.cs" />
-    <Compile Include="Base\Neurons\InputNeuron.cs" />
-    <Compile Include="Base\Neurons\OutputNeuron.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NeuralHelpers\NeuralHelpers.csproj">
-      <Project>{e39065cf-6782-46ba-a544-fc8c82c3b781}</Project>
-      <Name>NeuralHelpers</Name>
+    <ProjectReference Include="..\..\Network\ObsidiaNetwork.csproj">
+      <Project>{11e3db2b-b888-4e50-a5af-45065fc137f9}</Project>
+      <Name>ObsidiaNetwork</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

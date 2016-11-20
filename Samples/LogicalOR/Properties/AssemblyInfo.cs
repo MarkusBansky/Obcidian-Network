@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NeuralComponents")]
+[assembly: AssemblyTitle("LogicalOR")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NeuralComponents")]
+[assembly: AssemblyProduct("LogicalOR")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e07718fa-500a-436e-87f3-181250a7e198")]
+[assembly: Guid("32f5b753-f0fd-499c-bfec-604a3db5b0c1")]
 
 // Version information for an assembly consists of the following four values:
 //
