@@ -1,6 +1,5 @@
 ﻿using System;
-using Network;
-using Network.Base.Neurons;
+using Network.Instances;
 
 namespace LogicalOR
 {
@@ -8,22 +7,19 @@ namespace LogicalOR
     {
         public static void Main(string[] args)
         {
-            new Application();
+            // ReSharper disable once UnusedVariable
+            Application application = new Application();
         }
     }
 
     public class Application
     {
         private NeuralNetwork _network;
-        private ulong _pass = 0;
+        private ulong _pass;
 
-        private readonly double[] _initialValues1 = { 1, 1 };
-        private readonly double[] _initialValues2 = { 1, 0 };
-
-        private readonly double[] _output1 = {1, 0};
-        private readonly double[] _output2 = {1, 1};
-
-        private double[] _outputNew1 = {}, _outputNew2 = {};
+        private readonly double[] _initialValues = { 1, 1 };
+        private readonly double[] _expectedOutput = {1, 0};
+        private double[] _outputValues = {};
 
         public Application()
         {
@@ -38,6 +34,9 @@ namespace LogicalOR
             // adding 2 neurons for 1 layer
             _network.AddNeuron(new Neuron());
             _network.AddNeuron(new Neuron());
+            // 2 more for 2 layer
+            //_network.AddNeuron(new Neuron());
+            //_network.AddNeuron(new Neuron());
 
             // adding 2 neurons as biases for them
             _network.AddNeuron(new Neuron { InputValue = 1 });
@@ -79,16 +78,14 @@ namespace LogicalOR
                         break;
                     // Train once
                     case ConsoleKey.D1:
-                        _outputNew1 = _network.TrainPropagation(_initialValues1, _output1, 0.001);
-                        //_outputNew2 = _network.TrainPropagation(_initialValues2, _output2, 0.001);
+                        _outputValues = _network.TrainPropagation(_initialValues, _expectedOutput);
                         _pass++;
                         break;
                     // Train 1000 times
                     case ConsoleKey.D2:
                         for (int i = 0; i < 100; i++)
                         {
-                            _outputNew1 = _network.TrainPropagation(_initialValues1, _output1, 0.001);
-                            //_outputNew2 = _network.TrainPropagation(_initialValues2, _output2, 0.001);
+                            _outputValues = _network.TrainPropagation(_initialValues, _expectedOutput);
                         }
                         _pass += 100;
                         break;
@@ -117,19 +114,11 @@ namespace LogicalOR
             Console.WriteLine($"Pass: #{_pass}");
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Inputs: [" + string.Join(", ", _initialValues1) + "]");
+            Console.WriteLine("Inputs: [" + string.Join(", ", _initialValues) + "]");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Expected: [" + string.Join(", ", _output1) + "]");
+            Console.WriteLine("Expected: [" + string.Join(", ", _expectedOutput) + "]");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Result: [" + string.Join(", ", _outputNew1) + "]");
-            Console.WriteLine();
-
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Inputs: [" + string.Join(", ", _initialValues2) + "]");
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Expected: [" + string.Join(", ", _output2) + "]");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Result: [" + string.Join(", ", _outputNew2) + "]");
+            Console.WriteLine("Result: [" + string.Join(", ", _outputValues) + "]");
             Console.WriteLine();
         }
     }
