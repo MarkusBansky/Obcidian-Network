@@ -18,7 +18,7 @@ namespace LogicalOR
         private ulong _pass;
 
         private readonly double[] _initialValues = { 1, 1 };
-        private readonly double[] _expectedOutput = {1, 0};
+        private readonly double[] _expectedOutput = {1};
         private double[] _outputValues = {};
 
         public Application()
@@ -29,14 +29,11 @@ namespace LogicalOR
 
         private void GenerateNetwork()
         {
-            _network = new NeuralNetwork(2, 2);
+            _network = new NeuralNetwork(2, 1);
 
             // adding 2 neurons for 1 layer
             _network.AddNeuron(new Neuron());
             _network.AddNeuron(new Neuron());
-            // 2 more for 2 layer
-            //_network.AddNeuron(new Neuron());
-            //_network.AddNeuron(new Neuron());
 
             // adding 2 neurons as biases for them
             _network.AddNeuron(new Neuron { InputValue = 1 });
@@ -54,9 +51,7 @@ namespace LogicalOR
 
             // 1 layer to output
             _network.AddConnection(2, 6);
-            _network.AddConnection(2, 7);
             _network.AddConnection(3, 6);
-            _network.AddConnection(3, 7);
         }
 
         private void ApplicationLoop()
