@@ -1,5 +1,5 @@
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\bin\Debug\Network.dll
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\bin\Debug\Network.pdb
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\obj\Debug\ObsidiaNetwork.csprojResolveAssemblyReference.cache
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\obj\Debug\Network.dll
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\obj\Debug\Network.pdb
+C:\Users\benov\OneDrive\Документи\Visual Studio 15\Projects\NauralNetworks\Network\obj\Debug\ObsidiaNetwork.csprojResolveAssemblyReference.cache

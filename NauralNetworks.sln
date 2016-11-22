@@ -7,7 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObsidiaNetwork", "Network\O
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{508AD544-E44A-430E-A5CC-BF43856176B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicalOR", "Samples\LogicalOR\LogicalOR.csproj", "{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleProject", "Samples\LogicalOR\ExampleProject.csproj", "{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extentions", "Extentions", "{F2C2F27C-6570-4522-9532-ED90F49C47CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratorSample", "Extentions\Single_File_Generator\C#\GeneratorSample.csproj", "{461089E7-008E-4737-BA17-E1FCD1CC3D0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObcidiaLanguage", "Extentions\ObcidiaLanguage\C#\ObcidiaLanguage.csproj", "{F091221E-FD10-41A7-AAC4-C9359178BDB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,11 +29,21 @@ Global
 		{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{461089E7-008E-4737-BA17-E1FCD1CC3D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{461089E7-008E-4737-BA17-E1FCD1CC3D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{461089E7-008E-4737-BA17-E1FCD1CC3D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{461089E7-008E-4737-BA17-E1FCD1CC3D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F091221E-FD10-41A7-AAC4-C9359178BDB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F091221E-FD10-41A7-AAC4-C9359178BDB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F091221E-FD10-41A7-AAC4-C9359178BDB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F091221E-FD10-41A7-AAC4-C9359178BDB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{32F5B753-F0FD-499C-BFEC-604A3DB5B0C1} = {508AD544-E44A-430E-A5CC-BF43856176B3}
+		{461089E7-008E-4737-BA17-E1FCD1CC3D0E} = {F2C2F27C-6570-4522-9532-ED90F49C47CA}
+		{F091221E-FD10-41A7-AAC4-C9359178BDB1} = {F2C2F27C-6570-4522-9532-ED90F49C47CA}
 	EndGlobalSection
 EndGlobal

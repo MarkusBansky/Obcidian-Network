@@ -29,26 +29,6 @@ namespace Network.Base.Network
             InputNeurons[index].Value = value;
         }
 
-        public void AddNeuron(Neuron neuron)
-        {
-            ComputationalNeurons.Add(neuron);
-        }
-
-        public void AddConnection(int first, int second)
-        {
-            NeuralConnections.Add(new NeuralConnection(first, second));
-        }
-
-        public void AddConnections(int[,] connectionPairsArray)
-        {
-            int height = connectionPairsArray.Length/2;
-
-            for (int y = 0; y < height; y++)
-            {
-                NeuralConnections.Add(new NeuralConnection(connectionPairsArray[y, 0], connectionPairsArray[y, 1]));
-            }
-        }
-
         public double[] GetOutputValues()
         {
             return OutputNeurons.Select(on => on.Value).ToArray();
