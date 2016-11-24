@@ -84,27 +84,8 @@ namespace Network.Base.Network
         protected double DeltaTotalSum(Neuron neuron, double[] targetValues)
         {
             List<NeuralConnection> outputConnections = NeuralConnections.Where(nc => GetNeuron(nc.PreviousNeuron).Equals(neuron)).ToList();
-            if (outputConnections.OrderBy(c => c.NextNeuron).Last().NextNeuron >=
-                ComputationalNeurons.Count + InputNeurons.Count)
-            {
-                double sum = 0;
-                for (int i = 0; i < targetValues.Length; i++)
-                {
-                    sum += -(targetValues[i] - OutputNeurons[i].Value)*OutputNeurons[i].Value *
-                           (1 - OutputNeurons[i].Value) * NeuralConnections[NeuralConnections.Count - OutputNeurons.Count + i].Multiplier;
-                }
-                return sum;
-            }
-            else
-            {
-                double sum = 0;
-                for (int i = 0; i < targetValues.Length; i++)
-                {
-                    sum += -(targetValues[i] - OutputNeurons[i].Value) * neuron.Value *
-                           (1 - neuron.Value) * outputConnections[i].Multiplier;
-                }
-                return sum;
-            }
+            return outputConnections.OrderBy(c => c.NextNeuron).Last().NextNeuron >=
+                   ComputationalNeurons.Count + InputNeurons.Count ? targetValues.Select((t, i) => -(t - OutputNeurons[i].Value)*OutputNeurons[i].Value*(1 - OutputNeurons[i].Value)*NeuralConnections[NeuralConnections.Count - OutputNeurons.Count + i].Multiplier).Sum() : targetValues.Select((t, i) => -(t - OutputNeurons[i].Value)*neuron.Value*(1 - neuron.Value)*outputConnections[i].Multiplier).Sum();
         }
 
         protected Neuron GetNeuron(int index)

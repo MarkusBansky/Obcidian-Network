@@ -40,9 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\Connections\ConnectionBase.cs" />
     <Compile Include="Base\Network\NetworkBase.cs" />
     <Compile Include="Instances\Neuron.cs" />
-    <Compile Include="Base\Connections\NeuralConnection.cs" />
+    <Compile Include="Instances\NeuralConnection.cs" />
     <Compile Include="Base\Neurons\NeuronBase.cs" />
     <Compile Include="Instances\NeuralNetwork.cs" />
     <Compile Include="Helpers\FixedRandom.cs" />
