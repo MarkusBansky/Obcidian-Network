@@ -4,10 +4,8 @@ namespace Network.Instances
 {
     public class Neuron : NeuronBase
     {
-        public Neuron()
+        public Neuron() : base()
         {
-            Guid = System.Guid.NewGuid().ToString();
-
             ForwardCalculation = __sigmoid;
             BackwardCalculation = __sigmoid_derivative;
         }

@@ -18,7 +18,7 @@ namespace LogicalOR
         private ulong _pass;
 
         private readonly double[] _initialValues = { 1, 1 };
-        private readonly double[] _expectedOutput = {1};
+        private readonly double[] _expectedOutput = { 1, 0 };
         private double[] _outputValues = {};
 
         public Application()
@@ -29,7 +29,7 @@ namespace LogicalOR
 
         private void GenerateNetwork()
         {
-            _network = new NeuralNetwork(2, 1);
+            _network = new NeuralNetwork(2, 2);
 
             // adding 2 neurons for 1 layer
             _network.AddNeuron(new Neuron());
@@ -52,6 +52,8 @@ namespace LogicalOR
             // 1 layer to output
             _network.AddConnection(2, 6);
             _network.AddConnection(3, 6);
+            _network.AddConnection(2, 7);
+            _network.AddConnection(3, 7);
         }
 
         private void ApplicationLoop()
@@ -78,11 +80,11 @@ namespace LogicalOR
                         break;
                     // Train 1000 times
                     case ConsoleKey.D2:
-                        for (int i = 0; i < 100; i++)
+                        for (int i = 0; i < 1000; i++)
                         {
                             _outputValues = _network.TrainPropagation(_initialValues, _expectedOutput);
                         }
-                        _pass += 100;
+                        _pass += 1000;
                         break;
                     // Performe forward calculations
                     case ConsoleKey.D3:
@@ -96,8 +98,7 @@ namespace LogicalOR
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("0. Create new network.");
             Console.WriteLine("1. Teach 1 time.");
-            Console.WriteLine("2. Teach 100 time.");
-            Console.WriteLine("3. Calculate output for your own values.");
+            Console.WriteLine("2. Teach 1000 time.");
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("   ESC to exit.");
             Console.WriteLine();

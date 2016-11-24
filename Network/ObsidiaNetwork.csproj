@@ -40,17 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\Network\INetworkBase.cs" />
+    <Compile Include="Base\Network\NetworkBase.cs" />
     <Compile Include="Instances\Neuron.cs" />
-    <Compile Include="Instances\NeuralConnection.cs" />
-    <Compile Include="Base\Neurons\INeuronBase.cs" />
+    <Compile Include="Base\Connections\NeuralConnection.cs" />
+    <Compile Include="Base\Neurons\NeuronBase.cs" />
     <Compile Include="Instances\NeuralNetwork.cs" />
     <Compile Include="Helpers\FixedRandom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Base\Connections\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

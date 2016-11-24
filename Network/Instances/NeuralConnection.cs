@@ -1,20 +1,11 @@
-﻿using Network.Helpers;
+﻿using Network.Base.Connections;
 
-namespace Network.Base.Connections
+namespace Network.Instances
 {
-    public class NeuralConnection
+    public class NeuralConnection : ConnectionBase
     {
-        public readonly int PreviousNeuron;
-        public readonly int NextNeuron;
-
-        public double Multiplier;
-
-        public NeuralConnection(int previous, int next)
+        public NeuralConnection(int previous, int next) : base(previous, next)
         {
-            PreviousNeuron = previous;
-            NextNeuron = next;
-
-            Multiplier = FixedRandom.RandomDouble();
         }
     }
 }

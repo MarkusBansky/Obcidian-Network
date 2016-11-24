@@ -1,4 +1,0 @@
-C:\Users\benov\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Microsoft\C# Single File Generator Sample\1.0\\GeneratorSample.dll
-C:\Users\benov\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Microsoft\C# Single File Generator Sample\1.0\\GeneratorSample.pkgdef
-C:\Users\benov\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Microsoft\C# Single File Generator Sample\1.0\\extension.vsixmanifest
-C:\Users\benov\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Microsoft\C# Single File Generator Sample\1.0\\GeneratorSample.pdb
