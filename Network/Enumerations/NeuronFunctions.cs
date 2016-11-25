@@ -21,14 +21,11 @@
 //  * 2016 11 25
 //  */
 #endregion
-using Network.Base.Connections;
 
-namespace Network.Items
+namespace Network.Enumerations
 {
-    public class NeuralConnection : ConnectionBase
+    public enum NeuronFunctions
     {
-        public NeuralConnection(int previous, int next) : base(previous, next)
-        {
-        }
+        Sigmoid
     }
 }
