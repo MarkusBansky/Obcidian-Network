@@ -1,11 +1,12 @@
 ﻿using System;
+using Network.Items;
 
 namespace Network.Base.Neurons
 {
     /// <summary>
     /// Basic neuron class.
     /// </summary>
-    public class NeuronBase : IEquatable<NeuronBase>
+    public class NeuronBase : IEquatable<NeuronBase>, ICloneable
     {
         /// <summary>
         /// Unique Identificator.
@@ -77,6 +78,21 @@ namespace Network.Base.Neurons
         public override int GetHashCode()
         {
             return Guid?.GetHashCode() ?? 0;
+        }
+
+        /// <summary>
+        /// Overloaded ICloneable interface.
+        /// </summary>
+        /// <returns></returns>
+        public object Clone()
+        {
+            NeuronBase neuron = new Neuron();
+            neuron.BackwardCalculation = BackwardCalculation;
+            neuron.ForwardCalculation = ForwardCalculation;
+            neuron.InputValue = InputValue;
+            neuron.Value = Value;
+
+            return neuron;
         }
 
         /// <summary>

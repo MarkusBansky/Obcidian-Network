@@ -5,6 +5,9 @@ using Network.Items;
 
 namespace Network.Base.Network
 {
+    /// <summary>
+    /// Base network class.
+    /// </summary>
     public class NetworkBase
     {
         /// <summary>
