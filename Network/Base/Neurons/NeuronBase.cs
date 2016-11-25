@@ -48,26 +48,6 @@ namespace Network.Base.Neurons
         }
 
         /// <summary>
-        /// Sigmoid function.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        protected double __sigmoid(double value)
-        {
-            return 1 / (1 + Math.Exp(-value));
-        }
-
-        /// <summary>
-        /// Backward sigmoid function.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        protected double __sigmoid_derivative(double value)
-        {
-            return value * (1 - value);
-        }
-
-        /// <summary>
         /// Implemented IEquatable interface for IEnumerable collections.
         /// </summary>
         /// <param name="other"></param>
@@ -119,6 +99,15 @@ namespace Network.Base.Neurons
         public static bool operator !=(NeuronBase left, NeuronBase right)
         {
             return !Equals(left, right);
+        }
+
+        /// <summary>
+        /// Overloaded string conversion.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Guid + ":" + InputValue + ":" + Value;
         }
     }
 }
