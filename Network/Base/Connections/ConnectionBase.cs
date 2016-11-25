@@ -1,6 +1,6 @@
 ﻿using System;
 using Network.Helpers;
-using Network.Instances;
+using Network.Items;
 
 namespace Network.Base.Connections
 {

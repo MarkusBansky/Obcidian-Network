@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Network.Base.Neurons;
-using Network.Instances;
+using Network.Items;
 
 namespace ObsidiaNetworkTests.Base.Neurons
 {

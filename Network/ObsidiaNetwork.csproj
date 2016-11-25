@@ -42,10 +42,10 @@
   <ItemGroup>
     <Compile Include="Base\Connections\ConnectionBase.cs" />
     <Compile Include="Base\Network\NetworkBase.cs" />
-    <Compile Include="Instances\Neuron.cs" />
-    <Compile Include="Instances\NeuralConnection.cs" />
+    <Compile Include="Items\Neuron.cs" />
+    <Compile Include="Items\NeuralConnection.cs" />
     <Compile Include="Base\Neurons\NeuronBase.cs" />
-    <Compile Include="Instances\NeuralNetwork.cs" />
+    <Compile Include="Items\NeuralNetwork.cs" />
     <Compile Include="Helpers\FixedRandom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,5 +1,5 @@
 ﻿using System;
-using Network.Instances;
+using Network.Items;
 
 namespace LogicalOR
 {

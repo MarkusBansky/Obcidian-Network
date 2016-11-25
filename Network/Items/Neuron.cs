@@ -1,7 +1,7 @@
 ﻿using System;
 using Network.Base.Neurons;
 
-namespace Network.Instances
+namespace Network.Items
 {
     /// <summary>
     /// Neuron work item.

@@ -1,6 +1,6 @@
 ﻿using Network.Base.Connections;
 
-namespace Network.Instances
+namespace Network.Items
 {
     public class NeuralConnection : ConnectionBase
     {
