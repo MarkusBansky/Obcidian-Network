@@ -22,7 +22,7 @@
 //  */
 #endregion
 
-using Network.Base.Neurons;
+using Network.Base;
 using Network.Enumerations;
 using Network.Extentions.Templates;
 
@@ -49,24 +49,6 @@ namespace Network.Items
         {
             ForwardCalculation = NeuronFunction.GetFunction(function).ForwardFunction;
             BackwardCalculation = NeuronFunction.GetFunction(function).BackwardFunction;
-        }
-
-        /// <summary>
-        /// Invokes forward propagation delegate function.
-        /// </summary>
-        /// <returns></returns>
-        public double Invoke()
-        {
-            return ForwardCalculation.Invoke(InputValue);
-        }
-
-        /// <summary>
-        /// Invokes backward propagation delegate function.
-        /// </summary>
-        /// <returns></returns>
-        public double Revoke()
-        {
-            return BackwardCalculation.Invoke(InputValue);
         }
     }
 }

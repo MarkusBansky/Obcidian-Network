@@ -23,8 +23,7 @@
 #endregion
 using System.Collections.Generic;
 using System.Linq;
-using Network.Base.Network;
-using Network.Base.Neurons;
+using Network.Base;
 using Network.Enumerations;
 using Network.Extentions.Templates;
 

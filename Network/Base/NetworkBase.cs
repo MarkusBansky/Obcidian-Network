@@ -22,14 +22,36 @@
 //  */
 #endregion
 
-using Network.Base;
+using System.Collections.Generic;
+using Network.Extentions.Templates;
+using Network.Items;
 
-namespace Network.Items
+namespace Network.Base
 {
-    public class NeuralConnection : ConnectionBase
+    /// <summary>
+    /// Base network class.
+    /// </summary>
+    public class NetworkBase
     {
-        public NeuralConnection(int previous, int next) : base(previous, next)
+        /// <summary>
+        /// Custom neurons collection.
+        /// </summary>
+        protected NetworkNeuronsCollection NeuronsCollection;
+
+        /// <summary>
+        /// Neurons connections mappings.
+        /// </summary>
+        protected List<NeuralConnection> NeuralConnections;
+
+        /// <summary>
+        /// [] overloaded method.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Neuron this[int index]
         {
+            get { return NeuronsCollection[index] as Neuron; }
+            set { NeuronsCollection[index] = value; }
         }
     }
 }

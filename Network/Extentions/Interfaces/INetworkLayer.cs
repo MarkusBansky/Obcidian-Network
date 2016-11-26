@@ -21,36 +21,28 @@
 //  * 2016 11 25
 //  */
 #endregion
-using System.Collections.Generic;
-using Network.Extentions.Templates;
-using Network.Items;
 
-namespace Network.Base.Network
+using Network.Base;
+
+namespace Network.Extentions.Interfaces
 {
-    /// <summary>
-    /// Base network class.
-    /// </summary>
-    public class NetworkBase
+    public interface INetworkLayer
     {
         /// <summary>
-        /// Custom neurons collection.
+        /// Perform forward propagation for this layer.
         /// </summary>
-        protected NetworkNeuronsCollection NeuronsCollection;
+        void ForwardCalculation();
 
         /// <summary>
-        /// Neurons connections mappings.
+        /// Returns an array of neurons Value.
         /// </summary>
-        protected List<NeuralConnection> NeuralConnections;
-
-        /// <summary>
-        /// [] overloaded method.
-        /// </summary>
-        /// <param name="index"></param>
         /// <returns></returns>
-        public Neuron this[int index]
-        {
-            get { return NeuronsCollection[index] as Neuron; }
-            set { NeuronsCollection[index] = value; }
-        }
+        double[] GetValues();
+
+        /// <summary>
+        /// Returns an array of neurons InputValue.
+        /// </summary>
+        /// <returns></returns>
+        double[] GetInputValues();
     }
 }

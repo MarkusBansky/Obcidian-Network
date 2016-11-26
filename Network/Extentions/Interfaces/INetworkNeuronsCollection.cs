@@ -22,7 +22,7 @@
 //  */
 #endregion
 
-using Network.Base.Neurons;
+using Network.Base;
 
 namespace Network.Extentions.Interfaces
 {
@@ -49,39 +49,5 @@ namespace Network.Extentions.Interfaces
         /// <param name="index"></param>
         /// <returns></returns>
         NeuronBase GetComputationalNeuron(int index);
-
-        #region Add methods for input neurons
-        /// <summary>
-        /// Add default input neuron.
-        /// </summary>
-        /// <returns></returns>
-        NeuronBase AddInputNeuron();
-
-        /// <summary>
-        /// Add custom input neuron.
-        /// </summary>
-        /// <param name="neuron"></param>
-        /// <returns></returns>
-        NeuronBase AddInputNeuron(NeuronBase neuron);
-        #endregion
-
-        #region Add methods for output neurons
-        /// <summary>
-        /// Add default output neuron.
-        /// </summary>
-        /// <returns></returns>
-        NeuronBase AddOutputNeuron();
-
-        /// <summary>
-        /// Add custom output neuron.
-        /// </summary>
-        /// <param name="neuron"></param>
-        /// <returns></returns>
-        NeuronBase AddOutputNeuron(NeuronBase neuron);
-        #endregion
-
-        NeuronBase AddComputationalNeuron();
-
-        NeuronBase AddComputationalNeuron(NeuronBase neuron);
     }
 }

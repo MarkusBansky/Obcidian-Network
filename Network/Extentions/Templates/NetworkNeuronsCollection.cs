@@ -23,7 +23,7 @@
 #endregion
 using System;
 using System.Collections.Generic;
-using Network.Base.Neurons;
+using Network.Base;
 using Network.Extentions.Interfaces;
 using Network.Items;
 
@@ -37,9 +37,9 @@ namespace Network.Extentions.Templates
 
         public int ComputationalNeuronsCount => (NetworkNeurons.Count - (OutputNeuronsCount + InputNeuronsCount));
 
-        public List<NeuronBase> NetworkNeurons;
+        public List<NetworkLayer> Layers;
 
-        public NetworkNeuronsCollection()
+        public NetworkNeuronsCollection(int inputs, int outputs)
         {
             NetworkNeurons = new List<NeuronBase>();
             InputNeuronsCount = 0;
@@ -70,60 +70,10 @@ namespace Network.Extentions.Templates
             return NetworkNeurons[index];
         }
 
-        public NeuronBase AddInputNeuron()
-        {
-            NeuronBase neuron = new Neuron();
-            NetworkNeurons.Insert(InputNeuronsCount, neuron);
-            InputNeuronsCount++;
-            return neuron;
-        }
-
-        public NeuronBase AddInputNeuron(NeuronBase neuron)
-        {
-            NetworkNeurons.Insert(InputNeuronsCount, neuron);
-            InputNeuronsCount++;
-            return neuron;
-        }
-
-        public NeuronBase AddOutputNeuron()
-        {
-            NeuronBase neuron = new Neuron();
-            NetworkNeurons.Insert(InputNeuronsCount + OutputNeuronsCount, neuron);
-            OutputNeuronsCount++;
-            return neuron;
-        }
-
-        public NeuronBase AddOutputNeuron(NeuronBase neuron)
-        {
-            NetworkNeurons.Insert(InputNeuronsCount + OutputNeuronsCount, neuron);
-            OutputNeuronsCount++;
-            return neuron;
-        }
-
-        public NeuronBase AddComputationalNeuron()
-        {
-            NeuronBase neuron = new Neuron();
-            NetworkNeurons.Add(neuron);
-            OutputNeuronsCount++;
-            return neuron;
-        }
-
-        public NeuronBase AddComputationalNeuron(NeuronBase neuron)
-        {
-            NetworkNeurons.Add(neuron);
-            OutputNeuronsCount++;
-            return neuron;
-        }
-
         public NeuronBase this[int index]
         {
             get { return NetworkNeurons[index]; }
             set { NetworkNeurons[index] = value; }
-        }
-
-        public override string ToString()
-        {
-            return $"{nameof(NetworkNeurons)}: {NetworkNeurons}";
         }
     }
 }
