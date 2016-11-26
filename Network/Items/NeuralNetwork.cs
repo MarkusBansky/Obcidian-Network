@@ -24,28 +24,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using Network.Base.Network;
+using Network.Base.Neurons;
+using Network.Enumerations;
+using Network.Extentions.Templates;
 
 namespace Network.Items
 {
     public class NeuralNetwork : NetworkBase
     {
-        public NeuralNetwork(int numberOfInputValues, int numberOfOutputNeurons)
+        public NeuralNetwork(NeuronFunctions neuronDefaultFunction, int numberOfInputValues, int numberOfOutputNeurons, int numberOfBiasNeurons, int numberOfComputationalNeurons, bool makeDefaultMappings)
         {
-            ComputationalNeurons = new List<Neuron>();
+            NeuronsCollection = new NetworkNeuronsCollection();
             NeuralConnections = new List<NeuralConnection>();
 
-            InputNeurons = new List<Neuron>();
-            for(int i = 0; i < numberOfInputValues; i++)
-                InputNeurons.Add(new Neuron());
+            for (int i = 0; i < numberOfInputValues; i++)
+                NeuronsCollection.AddInputNeuron();
 
-            OutputNeurons = new List<Neuron>();
             for (int i = 0; i < numberOfOutputNeurons; i++)
-                OutputNeurons.Add(new Neuron());
-        }
-        
-        public void AddNeuron(Neuron neuron)
-        {
-            ComputationalNeurons.Add(neuron);
+                NeuronsCollection.AddOutputNeuron(new Neuron(neuronDefaultFunction));
+
+            for (int i = 0; i < numberOfComputationalNeurons; i++)
+                NeuronsCollection.AddComputationalNeuron(new Neuron(neuronDefaultFunction));
+
+            if (makeDefaultMappings)
+            {
+                
+            }
         }
 
         public void AddConnection(int first, int second)
@@ -65,7 +69,7 @@ namespace Network.Items
 
         public double[] TrainPropagation(double[] inputDoubles, double[] outputDoubles)
         {
-            for (int i = 0; i < InputNeurons.Count; i++)
+            for (int i = 0; i < NeuronsCollection.InputNeuronsCount; i++)
                 SetInputValue(i, inputDoubles[i]);
 
             // Perform forward propagation
@@ -79,27 +83,26 @@ namespace Network.Items
 
         public void SetInputValue(int index, double value)
         {
-            if (InputNeurons[index] == null)
-                InputNeurons[index] = new Neuron();
-
-            InputNeurons[index].Value = value;
+            NeuronsCollection.GetInputNeuron(index).Value = value;
         }
 
         public double[] GetOutputValues()
         {
-            return OutputNeurons.Select(on => on.Value).ToArray();
+            return NeuronsCollection.NetworkNeurons.GetRange(NeuronsCollection.InputNeuronsCount, NeuronsCollection.OutputNeuronsCount).Select(r => r.Value).ToArray();
         }
 
         public double[] ForwardPropagation()
         {
-            foreach (Neuron cn in ComputationalNeurons)
+            foreach (NeuronBase neuronBase in NeuronsCollection.NetworkNeurons.GetRange(NeuronsCollection.OutputNeuronsCount, NeuronsCollection.ComputationalNeuronsCount))
             {
+                Neuron cn = (Neuron) neuronBase;
                 cn.InputValue = NeuralConnections.Where(n => this[n.NextNeuron].Guid.Equals(cn.Guid)).Sum(nc => this[nc.PreviousNeuron].Value * nc.Multiplier);
                 cn.Value = cn.Invoke();
             }
 
-            OutputNeurons.ForEach(on =>
+            NeuronsCollection.NetworkNeurons.GetRange(NeuronsCollection.InputNeuronsCount, NeuronsCollection.OutputNeuronsCount).ForEach(neuronBase =>
             {
+                Neuron on = (Neuron)neuronBase;
                 on.InputValue =
                     NeuralConnections.Where(n => this[n.NextNeuron].Guid.Equals(on.Guid))
                         .Sum(nc => this[nc.PreviousNeuron].Value * nc.Multiplier);
@@ -117,14 +120,14 @@ namespace Network.Items
             // For output connections
             for (int i = 0; i < targetValues.Length; i++)
             {
-                NeuralConnection connection = NeuralConnections[NeuralConnections.Count - OutputNeurons.Count + i];
-                double dEtotal = -(targetValues[i] - OutputNeurons[i].Value) * OutputNeurons[i].Value * (1 - OutputNeurons[i].Value) * this[connection.PreviousNeuron].Value;
+                NeuralConnection connection = NeuralConnections[NeuralConnections.Count - NeuronsCollection.OutputNeuronsCount + i];
+                double dEtotal = -(targetValues[i] - NeuronsCollection.GetOutputNeuron(i).Value) * NeuronsCollection.GetOutputNeuron(i).Value * (1 - NeuronsCollection.GetOutputNeuron(i).Value) * this[connection.PreviousNeuron].Value;
 
                 newNeuralConnections[NeuralConnections.IndexOf(connection)].Multiplier -= 0.5 * dEtotal;
             }
 
             // for other connections
-            foreach (NeuralConnection connection in NeuralConnections.Where(nc => nc.NextNeuron < InputNeurons.Count + ComputationalNeurons.Count))
+            foreach (NeuralConnection connection in NeuralConnections.Where(nc => nc.NextNeuron < NeuronsCollection.InputNeuronsCount + NeuronsCollection.ComputationalNeuronsCount))
             {
                 double dEtotal =
                     DeltaTotalSum(this[connection.NextNeuron], targetValues)
@@ -146,17 +149,17 @@ namespace Network.Items
 
             return 
                 outputConnections.OrderBy(c => c.NextNeuron).Last().NextNeuron >=
-                   ComputationalNeurons.Count + InputNeurons.Count
+                   NeuronsCollection.ComputationalNeuronsCount + NeuronsCollection.InputNeuronsCount
                    ? targetValues.Select(
                        (t, i) => 
-                       -(t - OutputNeurons[i].Value) 
-                       * OutputNeurons[i].Value 
-                       * (1 - OutputNeurons[i].Value) 
-                       * NeuralConnections[NeuralConnections.Count - OutputNeurons.Count + i].Multiplier
+                       -(t - NeuronsCollection.GetOutputNeuron(i).Value) 
+                       * NeuronsCollection.GetOutputNeuron(i).Value 
+                       * (1 - NeuronsCollection.GetOutputNeuron(i).Value) 
+                       * NeuralConnections[NeuralConnections.Count - NeuronsCollection.OutputNeuronsCount + i].Multiplier
                        ).Sum() 
                    : targetValues.Select(
                        (t, i) => 
-                       -(t - OutputNeurons[i].Value) 
+                       -(t - NeuronsCollection.GetOutputNeuron(i).Value) 
                        * neuron.Value 
                        * (1 - neuron.Value) 
                        * outputConnections[i].Multiplier

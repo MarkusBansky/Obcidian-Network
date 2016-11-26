@@ -79,5 +79,9 @@ namespace Network.Extentions.Interfaces
         /// <returns></returns>
         NeuronBase AddOutputNeuron(NeuronBase neuron);
         #endregion
+
+        NeuronBase AddComputationalNeuron();
+
+        NeuronBase AddComputationalNeuron(NeuronBase neuron);
     }
 }

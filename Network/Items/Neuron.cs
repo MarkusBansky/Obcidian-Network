@@ -43,6 +43,15 @@ namespace Network.Items
         }
 
         /// <summary>
+        /// Constructor with type.
+        /// </summary>
+        public Neuron(NeuronFunctions function) : base()
+        {
+            ForwardCalculation = NeuronFunction.GetFunction(function).ForwardFunction;
+            BackwardCalculation = NeuronFunction.GetFunction(function).BackwardFunction;
+        }
+
+        /// <summary>
         /// Invokes forward propagation delegate function.
         /// </summary>
         /// <returns></returns>

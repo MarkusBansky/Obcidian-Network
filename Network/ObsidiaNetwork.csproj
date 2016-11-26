@@ -48,7 +48,6 @@
     <Compile Include="Extentions\Interfaces\INetworkLayers.cs" />
     <Compile Include="Extentions\Interfaces\INetworkNeuronsCollection.cs" />
     <Compile Include="Extentions\Interfaces\INeuronFunction.cs" />
-    <Compile Include="Extentions\Templates\NetworkLayers.cs" />
     <Compile Include="Extentions\Templates\NetworkNeuronsCollection.cs" />
     <Compile Include="Items\Neuron.cs" />
     <Compile Include="Items\NeuralConnection.cs" />
