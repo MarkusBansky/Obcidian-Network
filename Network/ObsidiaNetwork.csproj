@@ -42,6 +42,14 @@
   <ItemGroup>
     <Compile Include="Base\Connections\ConnectionBase.cs" />
     <Compile Include="Base\Network\NetworkBase.cs" />
+    <Compile Include="Enumerations\NeuronFunctions.cs" />
+    <Compile Include="Extentions\Functions\NeuronSigmoidFunction.cs" />
+    <Compile Include="Extentions\Templates\NeuronFunction.cs" />
+    <Compile Include="Extentions\Interfaces\INetworkLayers.cs" />
+    <Compile Include="Extentions\Interfaces\INetworkNeuronsCollection.cs" />
+    <Compile Include="Extentions\Interfaces\INeuronFunction.cs" />
+    <Compile Include="Extentions\Templates\NetworkLayers.cs" />
+    <Compile Include="Extentions\Templates\NetworkNeuronsCollection.cs" />
     <Compile Include="Items\Neuron.cs" />
     <Compile Include="Items\NeuralConnection.cs" />
     <Compile Include="Base\Neurons\NeuronBase.cs" />

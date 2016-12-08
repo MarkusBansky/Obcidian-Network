@@ -21,14 +21,10 @@
 //  * 2016 11 25
 //  */
 #endregion
-using Network.Base.Connections;
-
-namespace Network.Items
+namespace Network.Extentions.Interfaces
 {
-    public class NeuralConnection : ConnectionBase
+    public interface INetworkLayers
     {
-        public NeuralConnection(int previous, int next) : base(previous, next)
-        {
-        }
+        
     }
 }
