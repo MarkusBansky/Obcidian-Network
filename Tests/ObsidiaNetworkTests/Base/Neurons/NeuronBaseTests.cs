@@ -2,7 +2,7 @@
 using Network.Base.Neurons;
 using Network.Items;
 
-namespace ObsidiaNetworkTests.Base
+namespace ObsidiaNetworkTests.Base.Neurons
 {
     [TestClass()]
     public class NeuronBaseTests
