@@ -10,3 +10,15 @@ C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetwo
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Tests\ObsidiaNetworkTests\obj\Debug\ObsidiaNetworkTests.csprojResolveAssemblyReference.cache
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Tests\ObsidiaNetworkTests\obj\Debug\ObsidiaNetworkTests.dll
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Tests\ObsidiaNetworkTests\obj\Debug\ObsidiaNetworkTests.pdb
+F:\Development\NeuralNetworks\Tests\ObsidiaNetworkTests\obj\Debug\ObsidiaNetworkTests.csprojResolveAssemblyReference.cache
+F:\Development\NeuralNetworks\Tests\ObsidiaNetworkTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+F:\Development\NeuralNetworks\Tests\ObsidiaNetworkTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+F:\Development\NeuralNetworks\Tests\ObsidiaNetworkTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+F:\Development\NeuralNetworks\Tests\ObsidiaNetworkTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+F:\Development\NeuralNetworks\Tests\ObsidiaNetworkTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+F:\Development\NeuralNetworks\Tests\ObsidiaNetworkTests\bin\Debug\Network.dll
+F:\Development\NeuralNetworks\Tests\ObsidiaNetworkTests\bin\Debug\Network.pdb
+F:\Development\NeuralNetworks\Tests\ObsidiaNetworkTests\obj\Debug\ObsidiaNetworkTests.dll
+F:\Development\NeuralNetworks\Tests\ObsidiaNetworkTests\obj\Debug\ObsidiaNetworkTests.pdb
+F:\Development\NeuralNetworks\Tests\ObsidiaNetworkTests\bin\Debug\ObsidiaNetworkTests.dll
+F:\Development\NeuralNetworks\Tests\ObsidiaNetworkTests\bin\Debug\ObsidiaNetworkTests.pdb
