@@ -23,32 +23,22 @@
 #endregion
 using System;
 using System.Collections.Generic;
-using Network.Base;
+using Network.Base.Neurons;
 using Network.Extentions.Interfaces;
-using Network.Items;
 
 namespace Network.Extentions.Templates
 {
     public class NetworkNeuronsCollection : INetworkNeuronsCollection
     {
-        public int InputNeuronsCount;
+        protected int InputNeurons;
 
-        public int OutputNeuronsCount;
+        protected int OutputNeurons;
 
-        public int ComputationalNeuronsCount => (NetworkNeurons.Count - (OutputNeuronsCount + InputNeuronsCount));
-
-        public List<NetworkLayer> Layers;
-
-        public NetworkNeuronsCollection(int inputs, int outputs)
-        {
-            NetworkNeurons = new List<NeuronBase>();
-            InputNeuronsCount = 0;
-            OutputNeuronsCount = 0;
-        }
+        protected List<NeuronBase> NetworkNeurons;
 
         public NeuronBase GetInputNeuron(int index)
         {
-            if (index >= InputNeuronsCount || index < 0)
+            if (index >= InputNeurons || index < 0)
                 throw new IndexOutOfRangeException();
 
             return NetworkNeurons[index];
@@ -56,7 +46,7 @@ namespace Network.Extentions.Templates
 
         public NeuronBase GetOutputNeuron(int index)
         {
-            if (index >= InputNeuronsCount + OutputNeuronsCount || index < InputNeuronsCount)
+            if (index >= InputNeurons + OutputNeurons || index < InputNeurons)
                 throw new IndexOutOfRangeException();
 
             return NetworkNeurons[index];
@@ -64,16 +54,30 @@ namespace Network.Extentions.Templates
 
         public NeuronBase GetComputationalNeuron(int index)
         {
-            if (index >= NetworkNeurons.Count || index < InputNeuronsCount + OutputNeuronsCount)
+            if (index >= NetworkNeurons.Count || index < InputNeurons + OutputNeurons)
                 throw new IndexOutOfRangeException();
 
             return NetworkNeurons[index];
         }
 
-        public NeuronBase this[int index]
+        public NeuronBase AddInputNeuron()
         {
-            get { return NetworkNeurons[index]; }
-            set { NetworkNeurons[index] = value; }
+            throw new NotImplementedException();
+        }
+
+        public NeuronBase AddInputNeuron(NeuronBase neuron)
+        {
+            throw new NotImplementedException();
+        }
+
+        public NeuronBase AddOutputNeuron()
+        {
+            throw new NotImplementedException();
+        }
+
+        public NeuronBase AddOutputNeuron(NeuronBase neuron)
+        {
+            throw new NotImplementedException();
         }
     }
 }

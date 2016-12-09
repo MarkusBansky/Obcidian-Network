@@ -22,7 +22,7 @@
 //  */
 #endregion
 
-using Network.Base;
+using Network.Base.Neurons;
 using Network.Enumerations;
 using Network.Extentions.Templates;
 
@@ -43,12 +43,21 @@ namespace Network.Items
         }
 
         /// <summary>
-        /// Constructor with type.
+        /// Invokes forward propagation delegate function.
         /// </summary>
-        public Neuron(NeuronFunctions function) : base()
+        /// <returns></returns>
+        public double Invoke()
         {
-            ForwardCalculation = NeuronFunction.GetFunction(function).ForwardFunction;
-            BackwardCalculation = NeuronFunction.GetFunction(function).BackwardFunction;
+            return ForwardCalculation.Invoke(InputValue);
+        }
+
+        /// <summary>
+        /// Invokes backward propagation delegate function.
+        /// </summary>
+        /// <returns></returns>
+        public double Revoke()
+        {
+            return BackwardCalculation.Invoke(InputValue);
         }
     }
 }
