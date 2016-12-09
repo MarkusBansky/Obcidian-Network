@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BC45B155-4FE5-4501-8F1C-928E178EB864}</ProjectGuid>
+    <ProjectGuid>{C82CD673-BBA5-4A7C-A471-E383A499DC0E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ObsidiaNetworkTests</RootNamespace>
@@ -58,8 +58,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Base\Connections\ConnectionBaseTests.cs" />
-    <Compile Include="Base\Neurons\NeuronBaseTests.cs" />
+    <Compile Include="Base\ConnectionBaseTests.cs" />
+    <Compile Include="Base\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

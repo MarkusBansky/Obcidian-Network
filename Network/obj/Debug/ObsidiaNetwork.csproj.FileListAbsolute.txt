@@ -2,4 +2,12 @@ C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetwo
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\bin\Debug\Network.pdb
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\obj\Debug\Network.dll
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\obj\Debug\Network.pdb
+<<<<<<< HEAD
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\obj\Debug\ObsidiaNetwork.csprojResolveAssemblyReference.cache
+=======
+F:\Development\NeuralNetworks\Network\bin\Debug\Network.dll
+F:\Development\NeuralNetworks\Network\bin\Debug\Network.pdb
+F:\Development\NeuralNetworks\Network\obj\Debug\ObsidiaNetwork.csprojResolveAssemblyReference.cache
+F:\Development\NeuralNetworks\Network\obj\Debug\Network.dll
+F:\Development\NeuralNetworks\Network\obj\Debug\Network.pdb
+>>>>>>> refs/remotes/origin/master

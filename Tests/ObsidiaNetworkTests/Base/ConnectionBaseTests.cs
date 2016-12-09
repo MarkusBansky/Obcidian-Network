@@ -2,7 +2,7 @@
 using Network.Base;
 using Network.Items;
 
-namespace ObsidiaNetworkTests.Base.Connections
+namespace ObsidiaNetworkTests.Base
 {
     [TestClass()]
     public class ConnectionBaseTests
@@ -21,7 +21,7 @@ namespace ObsidiaNetworkTests.Base.Connections
         {
             ConnectionBase connection1 = new NeuralConnection(0, 1);
             ConnectionBase connection2 = new NeuralConnection(0, 2);
-            ConnectionBase connection3 = new NeuralConnection(0, 1) {Multiplier = connection1.Multiplier};
+            ConnectionBase connection3 = new NeuralConnection(0, 1) { Multiplier = connection1.Multiplier };
 
             Assert.IsTrue(connection1.Equals(connection3));
             Assert.IsFalse(connection1.Equals(connection2));
