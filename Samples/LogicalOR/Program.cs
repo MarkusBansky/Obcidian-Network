@@ -62,15 +62,7 @@ namespace LogicalOR
                         _outputValues = _network.TrainPropagation(_initialValues, _expectedOutput);
                         _pass++;
                         break;
-                    // Train 1000 times
-                    case ConsoleKey.D2:
-                        for (int i = 0; i < 1000; i++)
-                        {
-                            _outputValues = _network.TrainPropagation(_initialValues, _expectedOutput);
-                        }
-                        _pass += 1000;
-                        break;
-                    // Performe forward calculations
+                    // Perform forward calculations
                     case ConsoleKey.D3:
                         break;
                 }
