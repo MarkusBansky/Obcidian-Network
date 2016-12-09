@@ -21,28 +21,10 @@
 //  * 2016 11 25
 //  */
 #endregion
-
-using Network.Base;
-
 namespace Network.Extentions.Interfaces
 {
-    public interface INetworkLayer
+    public interface INetworkLayers
     {
-        /// <summary>
-        /// Perform forward propagation for this layer.
-        /// </summary>
-        void ForwardCalculation();
-
-        /// <summary>
-        /// Returns an array of neurons Value.
-        /// </summary>
-        /// <returns></returns>
-        double[] GetValues();
-
-        /// <summary>
-        /// Returns an array of neurons InputValue.
-        /// </summary>
-        /// <returns></returns>
-        double[] GetInputValues();
+        
     }
 }

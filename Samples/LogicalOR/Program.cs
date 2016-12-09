@@ -1,5 +1,4 @@
 ﻿using System;
-using Network.Enumerations;
 using Network.Items;
 
 namespace LogicalOR
@@ -30,14 +29,29 @@ namespace LogicalOR
 
         private void GenerateNetwork()
         {
-            _network = new NeuralNetwork(NeuronFunctions.Sigmoid, 2, 1, 0, 1, true);
+            _network = new NeuralNetwork(2, 1);
+
+            // adding 2 neurons for 1 layer
+            _network.AddNeuron(new Neuron());
+            _network.AddNeuron(new Neuron());
+
+            // adding 2 neurons as biases for them
+            _network.AddNeuron(new Neuron { InputValue = 1 });
+            _network.AddNeuron(new Neuron { InputValue = 1 });
 
             // inputs to 1 layer
             _network.AddConnection(0, 2);
+            _network.AddConnection(0, 3);
             _network.AddConnection(1, 2);
+            _network.AddConnection(1, 3);
+
+            // bias to 1 layer
+            _network.AddConnection(4, 2);
+            _network.AddConnection(5, 3);
 
             // 1 layer to output
-            _network.AddConnection(2, 3);
+            _network.AddConnection(2, 6);
+            _network.AddConnection(3, 6);
         }
 
         private void ApplicationLoop()
@@ -62,7 +76,15 @@ namespace LogicalOR
                         _outputValues = _network.TrainPropagation(_initialValues, _expectedOutput);
                         _pass++;
                         break;
-                    // Perform forward calculations
+                    // Train 1000 times
+                    case ConsoleKey.D2:
+                        for (int i = 0; i < 1000; i++)
+                        {
+                            _outputValues = _network.TrainPropagation(_initialValues, _expectedOutput);
+                        }
+                        _pass += 1000;
+                        break;
+                    // Performe forward calculations
                     case ConsoleKey.D3:
                         break;
                 }

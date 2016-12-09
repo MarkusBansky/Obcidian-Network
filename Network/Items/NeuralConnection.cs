@@ -21,8 +21,7 @@
 //  * 2016 11 25
 //  */
 #endregion
-
-using Network.Base;
+using Network.Base.Connections;
 
 namespace Network.Items
 {
