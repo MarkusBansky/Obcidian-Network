@@ -21,11 +21,12 @@
 //  * 2016 11 25
 //  */
 #endregion
+
 using System;
 using Network.Helpers;
 using Network.Items;
 
-namespace Network.Base.Connections
+namespace Network.Base
 {
     /// <summary>
     /// Basic connection class.

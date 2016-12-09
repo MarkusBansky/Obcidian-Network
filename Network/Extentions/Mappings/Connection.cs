@@ -18,18 +18,14 @@
 //  * from Afgor Entertainment.
 //  * 
 //  * Code written by Markus Benovsky for ObsidiaNetwork project in NauralNetworks
-//  * 2016 11 25
+//  * 2016 11 26
 //  */
 #endregion
-
-using Network.Base;
-
-namespace Network.Items
+namespace Network.Extentions.Mappings
 {
-    public class NeuralConnection : ConnectionBase
+    public struct Connection
     {
-        public NeuralConnection(int previous, int next) : base(previous, next)
-        {
-        }
+        public Key PreviousNeuron;
+        public Key NextNeuron;
     }
 }

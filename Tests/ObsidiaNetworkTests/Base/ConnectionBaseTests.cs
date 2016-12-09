@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Network.Base.Connections;
+using Network.Base;
 using Network.Items;
 
 namespace ObsidiaNetworkTests.Base

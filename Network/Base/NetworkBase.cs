@@ -21,10 +21,12 @@
 //  * 2016 11 25
 //  */
 #endregion
+
 using System.Collections.Generic;
+using Network.Extentions.Templates;
 using Network.Items;
 
-namespace Network.Base.Network
+namespace Network.Base
 {
     /// <summary>
     /// Base network class.
@@ -32,19 +34,9 @@ namespace Network.Base.Network
     public class NetworkBase
     {
         /// <summary>
-        /// Input neurons list.
+        /// Custom neurons collection.
         /// </summary>
-        protected List<Neuron> InputNeurons;
-
-        /// <summary>
-        /// Output neurons list.
-        /// </summary>
-        protected List<Neuron> OutputNeurons;
-
-        /// <summary>
-        /// Computational neurons list for layers.
-        /// </summary>
-        protected List<Neuron> ComputationalNeurons;
+        protected NetworkNeuronsCollection NeuronsCollection;
 
         /// <summary>
         /// Neurons connections mappings.
@@ -58,21 +50,8 @@ namespace Network.Base.Network
         /// <returns></returns>
         public Neuron this[int index]
         {
-            get
-            {
-                if (index < InputNeurons.Count)
-                    return InputNeurons[index];
-                return index < ComputationalNeurons.Count + InputNeurons.Count ? ComputationalNeurons[index - InputNeurons.Count] : OutputNeurons[index - (InputNeurons.Count + ComputationalNeurons.Count)];
-            }
-            set
-            {
-                if (index < InputNeurons.Count)
-                    InputNeurons[index] = value;
-                else if (index < ComputationalNeurons.Count + InputNeurons.Count)
-                    ComputationalNeurons[index - InputNeurons.Count] = value;
-                else
-                    OutputNeurons[index - (InputNeurons.Count + ComputationalNeurons.Count)] = value;
-            }
+            get { return NeuronsCollection[index] as Neuron; }
+            set { NeuronsCollection[index] = value; }
         }
     }
 }

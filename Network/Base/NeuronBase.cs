@@ -21,10 +21,11 @@
 //  * 2016 11 25
 //  */
 #endregion
+
 using System;
 using Network.Items;
 
-namespace Network.Base.Neurons
+namespace Network.Base
 {
     /// <summary>
     /// Basic neuron class.
@@ -147,6 +148,24 @@ namespace Network.Base.Neurons
         public override string ToString()
         {
             return Guid + ":" + InputValue + ":" + Value;
+        }
+
+        /// <summary>
+        /// Invokes forward propagation delegate function.
+        /// </summary>
+        /// <returns></returns>
+        public double Invoke()
+        {
+            return ForwardCalculation.Invoke(InputValue);
+        }
+
+        /// <summary>
+        /// Invokes backward propagation delegate function.
+        /// </summary>
+        /// <returns></returns>
+        public double Revoke()
+        {
+            return BackwardCalculation.Invoke(Value);
         }
     }
 }
