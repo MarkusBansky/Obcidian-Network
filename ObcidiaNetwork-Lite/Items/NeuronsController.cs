@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using ObcidiaNetwork.Base;
 
@@ -85,6 +86,17 @@ namespace ObcidiaNetwork.Items
                     NeuronsContainer[NormalizeIndexForOutputs (i)].ComputeFunction (
                         NeuronsContainer[NormalizeIndexForOutputs (i)].InputValue);
             }
+        }
+
+        public void BackwardPropagation(float[] trainingResultsFloats)
+        {
+            float[] outputErrors = new float[OutputsCount];
+            for (int i = 0; i < OutputsCount; i++)
+            {
+                outputErrors[i] = 0.5f * (float) Math.Pow(trainingResultsFloats[i] - NeuronsContainer[NormalizeIndexForOutputs(i)].OutputValue, 2);
+            }
+
+            float totalError = outputErrors.Sum();
         }
     }
 }

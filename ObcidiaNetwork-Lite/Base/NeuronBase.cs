@@ -1,4 +1,5 @@
 ﻿using System;
+using ObcidiaNetwork.Helpers;
 
 namespace ObcidiaNetwork.Base
 {
@@ -90,7 +91,7 @@ namespace ObcidiaNetwork.Base
 
         public override string ToString()
         {
-            return $"{{\n\t\t\t\"input\":{InputValue},\n\t\t\t\"output\":{OutputValue},\n\t\t\t\"id\":{GetHashCode()}\n\t\t}}";
+            return $"{{\n\t\t\t\"input\":{InputValue},\n\t\t\t\"output\":{OutputValue},\n\t\t\t\"id\":\"{HashGenerator.GenerateString(GetHashCode().ToString())}\"\n\t\t}}";
         }
     }
 }
