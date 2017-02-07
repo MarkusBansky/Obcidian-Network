@@ -86,7 +86,7 @@ namespace ObcidiaNetwork.Base
             throw new IndexOutOfRangeException ("Index is out of 'Outputs' bounds. Consider using a value > 0 and < OutputsCount.");
         }
 
-        protected int NormalizeIndexForInputs(int index)
+        public int NormalizeIndexForInputs(int index)
         {
             if (index >= 0 && index < InputsCount)
             {
@@ -95,7 +95,7 @@ namespace ObcidiaNetwork.Base
             throw new IndexOutOfRangeException ();
         }
 
-        protected int NormalizeIndexForBiases (int index)
+        public int NormalizeIndexForBiases (int index)
         {
             index += InputsCount;
 
@@ -106,7 +106,7 @@ namespace ObcidiaNetwork.Base
             throw new IndexOutOfRangeException ();
         }
 
-        protected int NormalizeIndexForComputational (int index)
+        public int NormalizeIndexForComputational (int index)
         {
             index += InputsCount + BiasesCount;
 
@@ -117,7 +117,7 @@ namespace ObcidiaNetwork.Base
             throw new IndexOutOfRangeException ();
         }
 
-        protected int NormalizeIndexForOutputs (int index)
+        public int NormalizeIndexForOutputs (int index)
         {
             index += InputsCount + BiasesCount + ComputationalCount;
 
@@ -131,18 +131,18 @@ namespace ObcidiaNetwork.Base
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();
-            output.Append("{");
+            output.Append("{\n");
 
-            output.Append ("\"neurons\":[");
+            output.Append ("\t\"neurons\":[\n");
             foreach (NeuronBase neuron in NeuronsContainer)
-                output.Append(neuron + ",");
-            output.Remove (output.Length - 1, 1);
+                output.Append("\t\t" + neuron + ",\n");
+            output.Remove (output.Length - 2, 2);
 
-            output.Append ("],\"connections\":[");
+            output.Append ("\n\t],\n\t\"connections\":[\n");
             foreach (ConnectionBase connection in ConnectionsContainer)
-                output.Append (connection + ",");
-            output.Remove(output.Length - 1, 1);
-            output.Append ("]}");
+                output.Append ("\t\t" + connection + ",\n");
+            output.Remove(output.Length - 2, 2);
+            output.Append ("\n\t]\n}");
             return output.ToString();
         }
     }

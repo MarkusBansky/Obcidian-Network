@@ -13,8 +13,14 @@ namespace ExampleProject_Lite
             // Set input values
             network.SetInputValues(new []{ 1f, 0f, 1f});
 
+            // Calculate outputs
+            network.CalculateOutputs ();
+
+            // Write out the values of outputs
+            Console.WriteLine("Result: " + string.Join(", ", network.GetOutputValues()) + "\n");
+
             // Export json
-            Console.WriteLine(network.ExportJson());
+            Console.WriteLine("\nJson: \n" + network.ExportJson() + "\n");
         }
     }
 }

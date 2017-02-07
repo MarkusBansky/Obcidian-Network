@@ -1,4 +1,6 @@
-﻿using ObcidiaNetwork.Items;
+﻿using System.Linq;
+using System.Text.RegularExpressions;
+using ObcidiaNetwork.Items;
 
 namespace ObcidiaNetwork
 {
@@ -23,7 +25,7 @@ namespace ObcidiaNetwork
 
         public void CalculateOutputs ()
         {
-
+            _controller.ForwardPropagation();
         }
 
         public void AdjustWeights ()
@@ -34,6 +36,11 @@ namespace ObcidiaNetwork
         public string ExportJson()
         {
             return _controller.ToString();
+        }
+
+        public string ExportJsonMinified()
+        {
+            return Regex.Replace (_controller.ToString (), @"\t|\n|\r", "");
         }
     }
 }

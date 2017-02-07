@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using ObcidiaNetwork.Base;
 
 namespace ObcidiaNetwork.Items
@@ -24,10 +25,7 @@ namespace ObcidiaNetwork.Items
             // add connections beetween biases and computational
             for (int x = 0; x < BiasesCount; x++)
             {
-                for (int y = 0; y < ComputationalCount; y++)
-                {
-                    ConnectionsContainer.Add (new Connection (NormalizeIndexForBiases(x), NormalizeIndexForComputational(y)));
-                }
+                ConnectionsContainer.Add (new Connection (NormalizeIndexForBiases(x), NormalizeIndexForComputational(x)));
             }
             // add connections beetween computational and outputs
             for (int x = 0; x < ComputationalCount; x++)
@@ -54,12 +52,39 @@ namespace ObcidiaNetwork.Items
         {
             float[] valueFloats = new float[OutputsCount];
 
+
             for (int i = 0; i < OutputsCount; i++)
             {
                 valueFloats[i] = NeuronsContainer[NormalizeIndexForOutputs(i)].OutputValue;
             }
 
             return valueFloats;
+        }
+
+        public void ForwardPropagation()
+        {
+            // Calculate outputs for computational neurons
+            for (int i = 0; i < ComputationalCount; i++)
+            {
+                NeuronsContainer[NormalizeIndexForComputational(i)].InputValue =
+                    ConnectionsContainer.Where (c => c.NeuronToId.Equals (NormalizeIndexForComputational (i)))
+                        .Sum (c => NeuronsContainer[c.NeuronFromId].OutputValue * c.WeightValue);
+
+                NeuronsContainer[NormalizeIndexForComputational(i)].OutputValue =
+                    NeuronsContainer[NormalizeIndexForComputational(i)].ComputeFunction(
+                        NeuronsContainer[NormalizeIndexForComputational(i)].InputValue);
+            }
+            // Calculate outputs values
+            for (int i = 0; i < OutputsCount; i++)
+            {
+                NeuronsContainer[NormalizeIndexForOutputs (i)].InputValue =
+                    ConnectionsContainer.Where (c => c.NeuronToId.Equals (NormalizeIndexForOutputs (i)))
+                        .Sum (c => NeuronsContainer[c.NeuronFromId].OutputValue * c.WeightValue);
+
+                NeuronsContainer[NormalizeIndexForOutputs (i)].OutputValue =
+                    NeuronsContainer[NormalizeIndexForOutputs (i)].ComputeFunction (
+                        NeuronsContainer[NormalizeIndexForOutputs (i)].InputValue);
+            }
         }
     }
 }

@@ -51,7 +51,7 @@
 
         public override string ToString()
         {
-            return $"{{\"from\":{NeuronFromId},\"to\":{NeuronToId},\"weight\":{WeightValue}}}";
+            return $"{{\n\t\t\t\"from\":{NeuronFromId},\n\t\t\t\"to\":{NeuronToId},\n\t\t\t\"weight\":{WeightValue}}}";
         }
     }
 }

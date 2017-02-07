@@ -90,7 +90,7 @@ namespace ObcidiaNetwork.Base
 
         public override string ToString()
         {
-            return $"{{\"input\":{InputValue},\"output\":{OutputValue},\"id\":{GetHashCode()}}}";
+            return $"{{\n\t\t\t\"input\":{InputValue},\n\t\t\t\"output\":{OutputValue},\n\t\t\t\"id\":{GetHashCode()}\n\t\t}}";
         }
     }
 }
