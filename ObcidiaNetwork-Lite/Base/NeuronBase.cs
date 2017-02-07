@@ -91,7 +91,7 @@ namespace ObcidiaNetwork.Base
 
         public override string ToString()
         {
-            return $"{{\n\t\t\t\"input\":{InputValue},\n\t\t\t\"output\":{OutputValue},\n\t\t\t\"id\":\"{HashGenerator.GenerateString(GetHashCode().ToString())}\"\n\t\t}}";
+            return $"{{\"input\":{InputValue},\"output\":{OutputValue},\"id\":\"{HashGenerator.GenerateString(GetHashCode().ToString())}\"}}";
         }
     }
 }

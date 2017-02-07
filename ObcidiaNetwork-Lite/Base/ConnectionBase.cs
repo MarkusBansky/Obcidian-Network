@@ -1,6 +1,8 @@
-﻿namespace ObcidiaNetwork.Base
+﻿using System;
+
+namespace ObcidiaNetwork.Base
 {
-    internal class ConnectionBase
+    internal class ConnectionBase : ICloneable
     {
         public int NeuronFromId;
         public int NeuronToId;
@@ -51,7 +53,19 @@
 
         public override string ToString()
         {
-            return $"{{\n\t\t\t\"from\":{NeuronFromId},\n\t\t\t\"to\":{NeuronToId},\n\t\t\t\"weight\":{WeightValue}}}";
+            return $"{{\"from\":{NeuronFromId},\"to\":{NeuronToId},\"weight\":{WeightValue}}}";
+        }
+
+        public object Clone()
+        {
+            ConnectionBase obj = new ConnectionBase
+            {
+                NeuronToId = NeuronToId,
+                NeuronFromId = NeuronFromId,
+                WeightValue = WeightValue
+            };
+
+            return obj;
         }
     }
 }

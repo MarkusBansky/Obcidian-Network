@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ObcidiaNetwork.Base;
@@ -7,6 +8,8 @@ namespace ObcidiaNetwork.Items
 {
     internal class NeuronsController : NeuronsControllerBase
     {
+        private const float _propagation_multiplier = 0.7f;
+
         public NeuronsController(int inputs, int computational, int outputs) : base(inputs, computational, outputs)
         {
             // set biases outputs
@@ -90,6 +93,8 @@ namespace ObcidiaNetwork.Items
 
         public void BackwardPropagation(float[] trainingResultsFloats)
         {
+            List<ConnectionBase> newConnections = ConnectionsContainer.Select (item => (ConnectionBase)item.Clone ()).ToList ();
+
             float[] outputErrors = new float[OutputsCount];
             for (int i = 0; i < OutputsCount; i++)
             {
@@ -97,6 +102,39 @@ namespace ObcidiaNetwork.Items
             }
 
             float totalError = outputErrors.Sum();
+
+            // Adjust weights near outputs
+            for (int i = 0; i < ConnectionsContainer.Count; i++)
+            {
+                if (ConnectionsContainer[i].NeuronToId >= InputsCount + BiasesCount + ComputationalCount &&
+                    ConnectionsContainer[i].NeuronToId < NeuronsContainer.Length)
+                {
+                    float prime = NeuronsContainer[ConnectionsContainer[i].NeuronToId].PrimeFunction (NeuronsContainer[ConnectionsContainer[i].NeuronToId].OutputValue);
+                    float sigma = -1f *
+                                  (trainingResultsFloats[ConnectionsContainer[i].NeuronToId - (InputsCount + BiasesCount + ComputationalCount)] -
+                                   NeuronsContainer[ConnectionsContainer[i].NeuronToId].OutputValue) * prime;
+
+                    newConnections[i].WeightValue -= _propagation_multiplier * sigma * NeuronsContainer[ConnectionsContainer[i].NeuronFromId].OutputValue;
+                }
+            }
+
+            // Adjust weights from inputs, biases to computational neurons
+            for (int i = 0; i < ConnectionsContainer.Count; i++)
+            {
+                if (ConnectionsContainer[i].NeuronToId >= InputsCount + BiasesCount &&
+                    ConnectionsContainer[i].NeuronToId < InputsCount + BiasesCount + ComputationalCount)
+                {
+                    newConnections[i].WeightValue -=
+                        _propagation_multiplier *
+                        ConnectionsContainer.Where(c => c.NeuronFromId == ConnectionsContainer[i].NeuronToId).Sum(c => -1f *
+                                       (trainingResultsFloats[c.NeuronToId - (InputsCount + BiasesCount + ComputationalCount)] - NeuronsContainer[c.NeuronToId].OutputValue) *
+                                       NeuronsContainer[c.NeuronToId].PrimeFunction(NeuronsContainer[c.NeuronToId].OutputValue)) *
+                        NeuronsContainer[ConnectionsContainer[i].NeuronToId].PrimeFunction(NeuronsContainer[ConnectionsContainer[i].NeuronToId].OutputValue) *
+                        NeuronsContainer[ConnectionsContainer[i].NeuronFromId].OutputValue;
+                }
+            }
+
+            ConnectionsContainer = newConnections.Select (item => (ConnectionBase)item.Clone ()).ToList ();
         }
     }
 }

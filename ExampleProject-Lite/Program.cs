@@ -5,8 +5,10 @@ namespace ExampleProject_Lite
 {
     class Program
     {
+        // ReSharper disable once UnusedParameter.Local
         static void Main (string[] args)
         {
+            // ReSharper disable once ObjectCreationAsStatement
             new Application();
         }
     }
@@ -16,8 +18,8 @@ namespace ExampleProject_Lite
         private NeuralNetwork _network;
         private ulong _pass;
 
-        private readonly float[] _initialValues = { 0, 1, 0 };
-        private readonly float[] _expectedOutput = { 1 };
+        private readonly float[] _initialValues = { 1, 0 };
+        private readonly float[] _expectedOutput = { 0 };
 
         public Application ()
         {
@@ -27,7 +29,7 @@ namespace ExampleProject_Lite
 
         private void GenerateNetwork ()
         {
-            _network = new NeuralNetwork (3, 2, 1);
+            _network = new NeuralNetwork (2, 2, 1);
             _network.SetInputValues (_initialValues);
         }
 
@@ -51,7 +53,13 @@ namespace ExampleProject_Lite
                     // Calculate once
                     case ConsoleKey.D1:
                         _network.CalculateOutputs();
-                        _pass++;
+                        break;
+                    case ConsoleKey.D2:
+                        for (int i = 0; i < 1000; i++)
+                        {
+                            _network.AdjustWeights(_expectedOutput);
+                            _pass++;
+                        }
                         break;
                     case ConsoleKey.D5:
                         Console.WriteLine ("Json: \n" + _network.ExportJson () + "\n");
@@ -67,7 +75,8 @@ namespace ExampleProject_Lite
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine ("0. Create new network.");
-            Console.WriteLine ("1. Teach 1 time.");
+            Console.WriteLine ("1. Calculate outputs.");
+            Console.WriteLine ("2. Texh 1000 times.");
             Console.WriteLine ("5. Export JSON.");
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine ("   ESC to exit.");
@@ -87,7 +96,7 @@ namespace ExampleProject_Lite
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine ("Result: [" + string.Join (", ", _network.GetOutputValues()) + "]");
             Console.WriteLine ();
-            Console.ResetColor ();
+            Console.ResetColor();
         }
     }
 }

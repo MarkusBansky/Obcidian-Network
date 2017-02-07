@@ -44,48 +44,6 @@ namespace ObcidiaNetwork.Base
             }
         }
 
-        protected NeuronBase GetInputNeuron(int index)
-        {
-            if (index >= 0 && index < InputsCount)
-            {
-                return NeuronsContainer[index];
-            }
-            throw new IndexOutOfRangeException("Index is out of 'Inputs' bounds. Consider using a value > 0 and < InputsCount.");
-        }
-
-        protected NeuronBase GetBiasNeuron (int index)
-        {
-            index -= InputsCount;
-
-            if (index >= 0 && index < BiasesCount)
-            {
-                return NeuronsContainer[index];
-            }
-            throw new IndexOutOfRangeException ("Index is out of 'Biases' bounds. Consider using a value > 0 and < BiasesCount.");
-        }
-
-        protected NeuronBase GetComputationalNeuron (int index)
-        {
-            index -= InputsCount + BiasesCount;
-
-            if (index >= 0 && index < ComputationalCount)
-            {
-                return NeuronsContainer[index];
-            }
-            throw new IndexOutOfRangeException ("Index is out of 'Computationals' bounds. Consider using a value > 0 and < ComputationalCount.");
-        }
-
-        protected NeuronBase GetOutputNeuron (int index)
-        {
-            index -= InputsCount + BiasesCount + ComputationalCount;
-
-            if (index >= 0 && index < OutputsCount)
-            {
-                return NeuronsContainer[index];
-            }
-            throw new IndexOutOfRangeException ("Index is out of 'Outputs' bounds. Consider using a value > 0 and < OutputsCount.");
-        }
-
         public int NormalizeIndexForInputs(int index)
         {
             if (index >= 0 && index < InputsCount)
@@ -131,18 +89,18 @@ namespace ObcidiaNetwork.Base
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();
-            output.Append("{\n");
+            output.Append("{");
 
-            output.Append ("\t\"neurons\":[\n");
+            output.Append ("\"neurons\":[");
             foreach (NeuronBase neuron in NeuronsContainer)
-                output.Append("\t\t" + neuron + ",\n");
-            output.Remove (output.Length - 2, 2);
+                output.Append(neuron + ",");
+            output.Remove (output.Length - 1, 1);
 
-            output.Append ("\n\t],\n\t\"connections\":[\n");
+            output.Append ("],\"connections\":[");
             foreach (ConnectionBase connection in ConnectionsContainer)
-                output.Append ("\t\t" + connection + ",\n");
-            output.Remove(output.Length - 2, 2);
-            output.Append ("\n\t]\n}");
+                output.Append (connection + ",");
+            output.Remove(output.Length - 1, 1);
+            output.Append ("]}");
             return output.ToString();
         }
     }
