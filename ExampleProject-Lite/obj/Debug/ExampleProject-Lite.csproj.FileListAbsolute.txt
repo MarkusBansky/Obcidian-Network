@@ -1,8 +1,0 @@
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ExampleProject-Lite\bin\Debug\ExampleProject-Lite.exe.config
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ExampleProject-Lite\bin\Debug\ExampleProject-Lite.exe
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ExampleProject-Lite\bin\Debug\ExampleProject-Lite.pdb
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ExampleProject-Lite\obj\Debug\ExampleProject-Lite.csprojResolveAssemblyReference.cache
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ExampleProject-Lite\obj\Debug\ExampleProject-Lite.exe
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ExampleProject-Lite\obj\Debug\ExampleProject-Lite.pdb
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ExampleProject-Lite\bin\Debug\ObcidiaNetwork-Lite.dll
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ExampleProject-Lite\bin\Debug\ObcidiaNetwork-Lite.pdb
