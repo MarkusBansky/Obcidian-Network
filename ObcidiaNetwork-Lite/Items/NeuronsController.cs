@@ -110,9 +110,10 @@ namespace ObcidiaNetwork.Items
                     ConnectionsContainer[i].NeuronToId < NeuronsContainer.Length)
                 {
                     float prime = NeuronsContainer[ConnectionsContainer[i].NeuronToId].PrimeFunction (NeuronsContainer[ConnectionsContainer[i].NeuronToId].OutputValue);
-                    float sigma = -1f *
-                                  (trainingResultsFloats[ConnectionsContainer[i].NeuronToId - (InputsCount + BiasesCount + ComputationalCount)] -
-                                   NeuronsContainer[ConnectionsContainer[i].NeuronToId].OutputValue) * prime;
+                    float sigma =
+                                  -(trainingResultsFloats[ConnectionsContainer[i].NeuronToId - (InputsCount + BiasesCount + ComputationalCount)] 
+                                  - NeuronsContainer[ConnectionsContainer[i].NeuronToId].OutputValue) 
+                                  * prime;
 
                     newConnections[i].WeightValue -= _propagation_multiplier * sigma * NeuronsContainer[ConnectionsContainer[i].NeuronFromId].OutputValue;
                 }
@@ -125,12 +126,13 @@ namespace ObcidiaNetwork.Items
                     ConnectionsContainer[i].NeuronToId < InputsCount + BiasesCount + ComputationalCount)
                 {
                     newConnections[i].WeightValue -=
-                        _propagation_multiplier *
-                        ConnectionsContainer.Where(c => c.NeuronFromId == ConnectionsContainer[i].NeuronToId).Sum(c => -1f *
-                                       (trainingResultsFloats[c.NeuronToId - (InputsCount + BiasesCount + ComputationalCount)] - NeuronsContainer[c.NeuronToId].OutputValue) *
-                                       NeuronsContainer[c.NeuronToId].PrimeFunction(NeuronsContainer[c.NeuronToId].OutputValue)) *
-                        NeuronsContainer[ConnectionsContainer[i].NeuronToId].PrimeFunction(NeuronsContainer[ConnectionsContainer[i].NeuronToId].OutputValue) *
-                        NeuronsContainer[ConnectionsContainer[i].NeuronFromId].OutputValue;
+                        _propagation_multiplier
+                        * ConnectionsContainer.Where(c => c.NeuronFromId == ConnectionsContainer[i].NeuronToId).Sum(c =>
+                            -(trainingResultsFloats[c.NeuronToId - (InputsCount + BiasesCount + ComputationalCount)] - NeuronsContainer[c.NeuronToId].OutputValue) 
+                            * NeuronsContainer[c.NeuronToId].PrimeFunction(NeuronsContainer[c.NeuronToId].OutputValue)
+                            * c.WeightValue)
+                        * NeuronsContainer[ConnectionsContainer[i].NeuronToId].PrimeFunction(NeuronsContainer[ConnectionsContainer[i].NeuronToId].OutputValue)
+                        * NeuronsContainer[ConnectionsContainer[i].NeuronFromId].OutputValue;
                 }
             }
 
