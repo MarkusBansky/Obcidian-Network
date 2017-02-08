@@ -1,4 +1,4 @@
-![logo](https://www.dropbox.com/s/lqmgx5oakts237s/Artboard%201%400.5x.png?dl=0)
+![logo](https://www.dropbox.com/s/lqmgx5oakts237s/Artboard%201%400.5x.png?dl=1)
 # **Obcidian Network** - a simple neural network library
 
 [![buddy pipeline](https://app.buddy.works/afgor/neuralnetworks/pipelines/pipeline/43558/badge.svg?token=38a71b28199405f84b29bbcf4cee2f85f9c914330b0a69437c1fe497bcd05c3c "buddy pipeline")](https://app.buddy.works/afgor/neuralnetworks/pipelines/pipeline/43558)
