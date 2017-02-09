@@ -1,7 +1,7 @@
 ﻿using System;
 using ObcidiaNetwork;
 
-namespace LogicalOR
+namespace ExampleProject_Lite
 {
     class Program
     {
@@ -9,7 +9,7 @@ namespace LogicalOR
         static void Main (string[] args)
         {
             // ReSharper disable once ObjectCreationAsStatement
-            new Application ();
+            new Application();
         }
     }
 
@@ -52,12 +52,12 @@ namespace LogicalOR
                         break;
                     // Calculate once
                     case ConsoleKey.D1:
-                        _network.CalculateOutputs ();
+                        _network.CalculateOutputs();
                         break;
                     case ConsoleKey.D2:
                         for (int i = 0; i < 10; i++)
                         {
-                            _network.AdjustWeights (_expectedOutput);
+                            _network.AdjustWeights(_expectedOutput);
                             _pass++;
                         }
                         break;
@@ -81,7 +81,7 @@ namespace LogicalOR
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine ("   ESC to exit.");
             Console.WriteLine ();
-            Console.ResetColor ();
+            Console.ResetColor();
         }
 
         private void PrintData ()
@@ -94,9 +94,9 @@ namespace LogicalOR
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine ("Expected: [" + string.Join (", ", _expectedOutput) + "]");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine ("Result: [" + string.Join (", ", _network.GetOutputValues ()) + "]");
+            Console.WriteLine ("Result: [" + string.Join (", ", _network.GetOutputValues()) + "]");
             Console.WriteLine ();
-            Console.ResetColor ();
+            Console.ResetColor();
         }
     }
 }
