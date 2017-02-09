@@ -1,0 +1,4 @@
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork\bin\Debug\ObcidiaNetwork-Lite.dll
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork\bin\Debug\ObcidiaNetwork-Lite.pdb
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork\obj\Debug\ObcidiaNetwork-Lite.dll
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork\obj\Debug\ObcidiaNetwork-Lite.pdb

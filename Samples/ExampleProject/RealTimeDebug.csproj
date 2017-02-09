@@ -54,6 +54,10 @@
       <Project>{277cdcd3-9221-469e-8317-3b68ab2ca8c4}</Project>
       <Name>ObcidiaNetwork</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\ObsidiaDebugger\ObsidiaDebugger.csproj">
+      <Project>{c076c9ae-0ec9-495a-8351-9835ffed046b}</Project>
+      <Name>ObsidiaDebugger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

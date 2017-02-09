@@ -100,7 +100,7 @@ namespace ObcidiaNetwork.Base
             foreach (ConnectionBase connection in ConnectionsContainer)
                 output.Append (connection + ",");
             output.Remove(output.Length - 1, 1);
-            output.Append ("]}");
+            output.Append ($"],\"inputs\":{InputsCount},\"biases\":{BiasesCount},\"computational\":{ComputationalCount},\"outputs\":{OutputsCount}}}");
             return output.ToString();
         }
     }

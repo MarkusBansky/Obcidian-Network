@@ -1,0 +1,9 @@
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\bin\Debug\ObsidiaDebugger.dll
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\bin\Debug\ObsidiaDebugger.pdb
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\obj\Debug\ObsidiaDebugger.csproj.GenerateResource.Cache
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\obj\Debug\ObsidiaDebugger.dll
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\obj\Debug\ObsidiaDebugger.pdb
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\bin\Debug\Newtonsoft.Json.dll
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\bin\Debug\Newtonsoft.Json.xml
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\obj\Debug\ObsidiaDebugger.csprojResolveAssemblyReference.cache
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\obj\Debug\ObsidiaDebugger.Content.ObsidianDebugger.resources

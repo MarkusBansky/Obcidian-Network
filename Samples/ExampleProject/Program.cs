@@ -1,5 +1,6 @@
 ﻿using System;
 using ObcidiaNetwork;
+using ObsidiaDebugger;
 
 namespace ExampleProject_Lite
 {
@@ -8,20 +9,24 @@ namespace ExampleProject_Lite
         // ReSharper disable once UnusedParameter.Local
         static void Main (string[] args)
         {
+            Console.WindowWidth = 50;
+            Console.WindowHeight = 30;
+            // Start debugger instance
+            new NeuralNetworkDebugger ();
             // ReSharper disable once ObjectCreationAsStatement
-            new Application();
+            new NetworkApplication ();
         }
     }
 
-    public class Application
+    public class NetworkApplication
     {
         private NeuralNetwork _network;
         private ulong _pass;
 
-        private readonly float[] _initialValues = { 1, 0 };
-        private readonly float[] _expectedOutput = { 0 };
+        private readonly float[] _initialValues = { 1, 0, 1, 0, 0 };
+        private readonly float[] _expectedOutput = { 0, 1 };
 
-        public Application ()
+        public NetworkApplication ()
         {
             GenerateNetwork ();
             ApplicationLoop ();
@@ -29,12 +34,14 @@ namespace ExampleProject_Lite
 
         private void GenerateNetwork ()
         {
-            _network = new NeuralNetwork (2, 2, 1);
+            _network = new NeuralNetwork (5, 10, 2);
             _network.SetInputValues (_initialValues);
         }
 
         private void ApplicationLoop ()
         {
+            _network.EnableDebugging ();
+
             ConsoleKey cki;
             do
             {

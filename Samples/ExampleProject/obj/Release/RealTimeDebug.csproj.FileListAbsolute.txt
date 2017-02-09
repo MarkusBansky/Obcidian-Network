@@ -6,3 +6,5 @@ C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\ExampleProject\bin\Releas
 C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\ExampleProject\obj\Release\RealTimeDebug.csprojResolveAssemblyReference.cache
 C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\ExampleProject\obj\Release\ExampleProject-Lite.exe
 C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\ExampleProject\obj\Release\ExampleProject-Lite.pdb
+C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\ExampleProject\bin\Release\ObsidiaDebugger.dll
+C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\ExampleProject\bin\Release\ObsidiaDebugger.pdb

@@ -6,3 +6,11 @@ C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetwo
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Samples\LogicalOR\obj\Debug\LogicalOR.csprojResolveAssemblyReference.cache
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Samples\LogicalOR\obj\Debug\LogicalOR.exe
 C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Samples\LogicalOR\obj\Debug\LogicalOR.pdb
+C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\bin\Debug\LogicalOR.exe.config
+C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\bin\Debug\LogicalOR.exe
+C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\bin\Debug\LogicalOR.pdb
+C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\bin\Debug\ObcidiaNetwork-Lite.dll
+C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\bin\Debug\ObcidiaNetwork-Lite.pdb
+C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\obj\Debug\LogicalOR.csprojResolveAssemblyReference.cache
+C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\obj\Debug\LogicalOR.exe
+C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\obj\Debug\LogicalOR.pdb
