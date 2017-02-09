@@ -1,9 +1,0 @@
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\bin\Debug\Network.dll
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\bin\Debug\Network.pdb
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\bin\Debug\NeuralComponents.dll
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\bin\Debug\NeuralComponents.pdb
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\obj\Debug\Network.csprojResolveAssemblyReference.cache
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\obj\Debug\Network.dll
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\obj\Debug\Network.pdb
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\bin\Debug\NeuralHelpers.dll
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\bin\Debug\NeuralHelpers.pdb

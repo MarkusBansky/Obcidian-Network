@@ -1,0 +1,5 @@
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork-Lite\bin\Release\ObcidiaNetwork-Lite.dll
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork-Lite\bin\Release\ObcidiaNetwork-Lite.pdb
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork-Lite\obj\Release\ObcidiaNetwork-Lite.dll
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork-Lite\obj\Release\ObcidiaNetwork-Lite.pdb
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork-Lite\obj\Release\ObcidiaNetwork-Lite.csprojResolveAssemblyReference.cache

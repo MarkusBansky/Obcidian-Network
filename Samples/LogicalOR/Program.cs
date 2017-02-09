@@ -1,14 +1,15 @@
 ﻿using System;
-using Network.Items;
+using ObcidiaNetwork;
 
 namespace LogicalOR
 {
-    internal class Program
+    class Program
     {
-        public static void Main(string[] args)
+        // ReSharper disable once UnusedParameter.Local
+        static void Main (string[] args)
         {
-            // ReSharper disable once UnusedVariable
-            Application application = new Application();
+            // ReSharper disable once ObjectCreationAsStatement
+            new Application ();
         }
     }
 
@@ -17,103 +18,85 @@ namespace LogicalOR
         private NeuralNetwork _network;
         private ulong _pass;
 
-        private readonly double[] _initialValues = { 1, 1 };
-        private readonly double[] _expectedOutput = { 1 };
-        private double[] _outputValues = {};
+        private readonly float[] _initialValues = { 1, 0 };
+        private readonly float[] _expectedOutput = { 0 };
 
-        public Application()
+        public Application ()
         {
-            GenerateNetwork();
-            ApplicationLoop();
+            GenerateNetwork ();
+            ApplicationLoop ();
         }
 
-        private void GenerateNetwork()
+        private void GenerateNetwork ()
         {
-            _network = new NeuralNetwork(2, 1);
-
-            // adding 2 neurons for 1 layer
-            _network.AddNeuron(new Neuron());
-            _network.AddNeuron(new Neuron());
-
-            // adding 2 neurons as biases for them
-            _network.AddNeuron(new Neuron { InputValue = 1 });
-            _network.AddNeuron(new Neuron { InputValue = 1 });
-
-            // inputs to 1 layer
-            _network.AddConnection(0, 2);
-            _network.AddConnection(0, 3);
-            _network.AddConnection(1, 2);
-            _network.AddConnection(1, 3);
-
-            // bias to 1 layer
-            _network.AddConnection(4, 2);
-            _network.AddConnection(5, 3);
-
-            // 1 layer to output
-            _network.AddConnection(2, 6);
-            _network.AddConnection(3, 6);
+            _network = new NeuralNetwork (2, 2, 1);
+            _network.SetInputValues (_initialValues);
         }
 
-        private void ApplicationLoop()
+        private void ApplicationLoop ()
         {
             ConsoleKey cki;
             do
             {
-                PrintData();
-                DisplayMenu();
+                PrintData ();
+                DisplayMenu ();
 
-                cki = Console.ReadKey().Key;
-                Console.WriteLine();
+                cki = Console.ReadKey ().Key;
+                Console.WriteLine ();
 
                 switch (cki)
                 {
                     // Create new network
                     case ConsoleKey.D0:
-                        GenerateNetwork();
+                        GenerateNetwork ();
                         break;
-                    // Train once
+                    // Calculate once
                     case ConsoleKey.D1:
-                        _outputValues = _network.TrainPropagation(_initialValues, _expectedOutput);
-                        _pass++;
+                        _network.CalculateOutputs ();
                         break;
-                    // Train 1000 times
                     case ConsoleKey.D2:
-                        for (int i = 0; i < 1000; i++)
+                        for (int i = 0; i < 10; i++)
                         {
-                            _outputValues = _network.TrainPropagation(_initialValues, _expectedOutput);
+                            _network.AdjustWeights (_expectedOutput);
+                            _pass++;
                         }
-                        _pass += 1000;
                         break;
-                    // Performe forward calculations
+                    case ConsoleKey.D5:
+                        Console.WriteLine ("Json: \n" + _network.ExportJson () + "\n");
+                        break;
+                    // Exit
                     case ConsoleKey.D3:
                         break;
                 }
             } while (cki != ConsoleKey.Escape);
         }
 
-        private void DisplayMenu()
+        private void DisplayMenu ()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("0. Create new network.");
-            Console.WriteLine("1. Teach 1 time.");
-            Console.WriteLine("2. Teach 1000 time.");
+            Console.WriteLine ("0. Create new network.");
+            Console.WriteLine ("1. Calculate outputs.");
+            Console.WriteLine ("2. Texh 10 times.");
+            Console.WriteLine ("5. Export JSON.");
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("   ESC to exit.");
-            Console.WriteLine();
+            Console.WriteLine ("   ESC to exit.");
+            Console.WriteLine ();
+            Console.ResetColor ();
         }
 
-        private void PrintData()
+        private void PrintData ()
         {
-            Console.ResetColor();
-            Console.WriteLine($"Pass: #{_pass}");
+            Console.ResetColor ();
+            Console.WriteLine ($"Pass: #{_pass}");
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Inputs: [" + string.Join(", ", _initialValues) + "]");
+            Console.WriteLine ("Inputs: [" + string.Join (", ", _initialValues) + "]");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Expected: [" + string.Join(", ", _expectedOutput) + "]");
+            Console.WriteLine ("Expected: [" + string.Join (", ", _expectedOutput) + "]");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Result: [" + string.Join(", ", _outputValues) + "]");
-            Console.WriteLine();
+            Console.WriteLine ("Result: [" + string.Join (", ", _network.GetOutputValues ()) + "]");
+            Console.WriteLine ();
+            Console.ResetColor ();
         }
     }
 }

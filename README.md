@@ -1,7 +1,9 @@
-![logo](https://www.dropbox.com/s/gcyl94z6vblkvep/Asset%201.png?dl=1)
-# **ObcidiaNetwork** - a simple neural network library
+![logo](https://www.dropbox.com/s/lqmgx5oakts237s/Artboard%201%400.5x.png?dl=1)
+# **Obcidian Network** - a simple neural network library
+[![Issue Count](https://codeclimate.com/github/MarkusBansky/NauralNetworks/badges/issue_count.svg)](https://codeclimate.com/github/MarkusBansky/NauralNetworks)
+[![buddy pipeline](https://app.buddy.works/afgor/neuralnetworks/pipelines/pipeline/43558/badge.svg?token=38a71b28199405f84b29bbcf4cee2f85f9c914330b0a69437c1fe497bcd05c3c "buddy pipeline")](https://app.buddy.works/afgor/neuralnetworks/pipelines/pipeline/43558)
 
-**ObcidiaNetwork** is a C# library that would help you create your own neural networks.
+**Obcidian Network** is a C# library that would help you create your own neural networks.
 
 It has some major fetures:
 
