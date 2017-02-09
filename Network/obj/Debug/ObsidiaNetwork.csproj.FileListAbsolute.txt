@@ -1,0 +1,8 @@
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\bin\Debug\Network.dll
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\bin\Debug\Network.pdb
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\obj\Debug\Network.dll
+C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Network\obj\Debug\Network.pdb
+F:\Development\NeuralNetworks\Network\bin\Debug\Network.dll
+F:\Development\NeuralNetworks\Network\bin\Debug\Network.pdb
+F:\Development\NeuralNetworks\Network\obj\Debug\Network.dll
+F:\Development\NeuralNetworks\Network\obj\Debug\Network.pdb
