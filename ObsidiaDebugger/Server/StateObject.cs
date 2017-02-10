@@ -3,7 +3,6 @@ using System.Text;
 
 namespace ObsidiaDebugger.Server
 {
-    // State object for reading client data asynchronously
     internal class StateObject
     {
         // Client  socket.

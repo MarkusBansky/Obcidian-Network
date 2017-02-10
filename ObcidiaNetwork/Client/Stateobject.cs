@@ -3,7 +3,6 @@ using System.Text;
 
 namespace ObcidiaNetwork.Client
 {
-    // State object for receiving data from remote device.
     internal class StateObject
     {
         // Client socket.
