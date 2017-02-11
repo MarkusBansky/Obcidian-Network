@@ -5,22 +5,31 @@
 
 **Obcidian Network** is a C# library that would help you create your own neural networks.
 
+You can install **Obcidian Network** from **NuGet** package manager.
+ > PM> `Install-Package ObcidiaNetwork`
+
+If you are an enthusiast or a student and want to learn how the neural networks work then this is a good solution for you.
+
+Everything is very simple and easy to instal. You can instal *ObcidiaNetwork* from *NuGet* and use it in any C# project you can.
+
 It has some major fetures:
 
-  - Multiple input neurons
-  - Multiple and deep computational neurons, each can have own function
-  - Simple neuron connections
+  - Multiple input, computational, biases, output neurons
+  - Simple neural connections
+  - Optimized algorithm
+  - Low memory usage
+  - High performance, as network is stored in RAM
+  - Visual debugger
+  - JSON scheme export
 
-You can also:
-  - Dynamicaly create neurons
+For future I plan:
   - Remap connections
-  - Override computational neurons structure
+  - Dynamicaly create connections that affect outputs for best result
+  - Dynamicalt create neurons for better results
+  - Automated trainings
+  - Better performance
 
+### How to start
 
-> The main feature of this library is to give user maximum control over the Neural network.
-
-### Hot to start
-
-1. Download library with binaries from github releases page.
-2. Create a new project, or implement the library in existing project.
-3. Use library as you need. (more info on WIKI pages)
+- [How to include library in your projects](https://github.com/MarkusBansky/Obcidian-Network/wiki/How-to-include-libraries)
+- [Learn to create a simple Network](https://github.com/MarkusBansky/Obcidian-Network/wiki/Creating-LITE-Network)
