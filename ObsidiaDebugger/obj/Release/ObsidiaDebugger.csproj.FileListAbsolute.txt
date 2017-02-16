@@ -1,7 +1,0 @@
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\bin\Release\ObsidiaDebugger.dll
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\bin\Release\ObsidiaDebugger.pdb
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\obj\Release\ObsidiaDebugger.csproj.GenerateResource.Cache
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\obj\Release\ObsidiaDebugger.dll
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\obj\Release\ObsidiaDebugger.pdb
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\obj\Release\ObsidiaDebugger.ObsidianDebugger.resources
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ObsidiaDebugger\obj\Release\ObsidiaDebugger.csprojResolveAssemblyReference.cache

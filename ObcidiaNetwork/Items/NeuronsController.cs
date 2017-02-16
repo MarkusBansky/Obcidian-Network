@@ -95,14 +95,6 @@ namespace ObcidiaNetwork.Items
         {
             List<ConnectionBase> newConnections = ConnectionsContainer.Select (item => (ConnectionBase)item.Clone ()).ToList ();
 
-            float[] outputErrors = new float[OutputsCount];
-            for (int i = 0; i < OutputsCount; i++)
-            {
-                outputErrors[i] = 0.5f * (float) Math.Pow(trainingResultsFloats[i] - NeuronsContainer[NormalizeIndexForOutputs(i)].OutputValue, 2);
-            }
-
-            float totalError = outputErrors.Sum();
-
             // Adjust weights near outputs
             for (int i = 0; i < ConnectionsContainer.Count; i++)
             {
@@ -137,6 +129,11 @@ namespace ObcidiaNetwork.Items
             }
 
             ConnectionsContainer = newConnections.Select (item => (ConnectionBase)item.Clone ()).ToList ();
+        }
+
+        public void ParseNetwork(string json)
+        {
+            
         }
     }
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ObcidiaNetwork</id>
+    <version>0.2.3</version>
+    <title>Obcidian Network</title>
+    <authors>Markus Benovsky</authors>
+    <owners>Markus Benovsky</owners>
+    <licenseUrl>https://github.com/MarkusBansky/Obcidian-Network/blob/nightly/LICENCE.md</licenseUrl>
+    <projectUrl>https://markusbansky.github.io/Obcidian-Network/</projectUrl>
+	<iconUrl>https://camo.githubusercontent.com/824e9dcd82c0ae3d8def0bbdb633d9f725c450cf/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f6c716d6778356f616b7473323337732f417274626f61726425323031253430302e35782e706e673f646c3d31</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple lightweight Neural network library, suitable for education and enthusiasts. Currently in development and not finished yet, please look forward for updates.</description>
+    <releaseNotes>Added the ability to debug through TCP IP protocols, stabilized performance, minor fixes.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>neural network lightweight neurons simple</tags>
+	<packageTypes>
+        <packageType name="Dependency" />
+    </packageTypes>
+	<dependencies>
+    	<dependency id="Newtonsoft.Json" version="9.0" />
+    </dependencies>
+  </metadata>
+</package>
