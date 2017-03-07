@@ -21,8 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile>bin\Debug\ObcidiaNetwork.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -49,7 +48,6 @@
     <Compile Include="Base\Neuron.cs" />
     <Compile Include="Controllers\NeuronsControllerBase.cs" />
     <Compile Include="Helpers\FixedRandom.cs" />
-    <Compile Include="Helpers\HashGenerator.cs" />
     <Compile Include="Controllers\NeuronsController.cs" />
     <Compile Include="Base\Sigmoid.cs" />
     <Compile Include="IO\NNExporter.cs" />

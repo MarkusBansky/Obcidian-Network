@@ -14,3 +14,4 @@ C:\Users\benov\Documents\GitHub\NeuralNetworks\NumbersIdentificator\obj\Debug\Nu
 C:\Users\benov\Documents\GitHub\NeuralNetworks\NumbersIdentificator\obj\Debug\NumbersIdentificator.csproj.GenerateResource.Cache
 C:\Users\benov\Documents\GitHub\NeuralNetworks\NumbersIdentificator\obj\Debug\NumbersIdentificator.exe
 C:\Users\benov\Documents\GitHub\NeuralNetworks\NumbersIdentificator\obj\Debug\NumbersIdentificator.pdb
+C:\Users\benov\Documents\GitHub\NeuralNetworks\NumbersIdentificator\bin\Debug\ObcidiaNetwork.xml
