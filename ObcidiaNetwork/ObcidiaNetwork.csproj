@@ -45,16 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\ConnectionBase.cs" />
-    <Compile Include="Base\NeuronBase.cs" />
-    <Compile Include="Base\NeuronsControllerBase.cs" />
-    <Compile Include="Client\RestClient.cs" />
-    <Compile Include="Client\StateObject.cs" />
+    <Compile Include="Base\Connection.cs" />
+    <Compile Include="Base\Neuron.cs" />
+    <Compile Include="Controllers\NeuronsControllerBase.cs" />
     <Compile Include="Helpers\FixedRandom.cs" />
     <Compile Include="Helpers\HashGenerator.cs" />
-    <Compile Include="Items\Connection.cs" />
-    <Compile Include="Items\Neuron.cs" />
-    <Compile Include="Items\NeuronsController.cs" />
+    <Compile Include="Controllers\NeuronsController.cs" />
+    <Compile Include="Base\Sigmoid.cs" />
+    <Compile Include="IO\NNExporter.cs" />
+    <Compile Include="IO\NNImporter.cs" />
     <Compile Include="NeuralNetwork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NumbersIdentificator"
         mc:Ignorable="d"
-        Title="Neural Number Identify" Height="287" Width="284" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" SizeToContent="WidthAndHeight" MinWidth="284" MinHeight="287">
-    <Grid MinWidth="278" MinHeight="258">
+        Title="Neural Number Identify" Height="346" Width="284" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" SizeToContent="WidthAndHeight" MinWidth="284" MinHeight="346">
+    <Grid MinWidth="278" MinHeight="317">
         <Button x:Name="chooseButton" Content="Choose image" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Width="130" Height="25" Click="chooseButton_Click"/>
         <Label x:Name="label1" Content="Input image" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="outputTextBox" HorizontalAlignment="Left" Height="175" Margin="145,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -14,6 +14,8 @@
        RenderOptions.EdgeMode="Aliased"/>
         <Label x:Name="label2" Content="Output results" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top"/>
         <Button x:Name="trainButton" Content="Train network" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" Width="256" Height="25" Click="trainButton_Click"/>
+        <Button x:Name="importButton" Content="Import network" HorizontalAlignment="Left" Margin="10,251,0,0" VerticalAlignment="Top" Width="256" Height="25" Click="importButton_Click"/>
+        <Button x:Name="trainButton_Copy1" Content="Export network" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Width="256" Height="25" Click="trainButton_Copy1_Click"/>
 
     </Grid>
 </Window>

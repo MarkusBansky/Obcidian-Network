@@ -19,7 +19,7 @@ namespace NumbersIdentificator
         public MainWindow ()
         {
             InitializeComponent ();
-            _network = new NeuralNetwork(256, 256, 10, true);
+            _network = new NeuralNetwork(256, 128, 10);
         }
 
         private void chooseButton_Click (object sender, RoutedEventArgs e)
@@ -36,40 +36,63 @@ namespace NumbersIdentificator
             byte[] inputValues = new byte[bitmapImage.PixelHeight * nStride];
             bitmapImage.CopyPixels (inputValues, nStride, 0);
 
-            float[] outputValues = _network.CalculateOutputs(inputValues.Where((x, i) => i % 4 == 1).Select(x => x / 255f).ToArray());
+            double[] outputValues = _network.Calculate(inputValues.Where((x, i) => i % 4 == 1).Select(x => x / 255.0).ToArray());
 
-            var pairs = outputValues.Select((x, i) => new KeyValuePair<float, int>(x, i)).OrderByDescending(p => p.Key).ToArray();
+            var pairs = outputValues.Select((x, i) => new KeyValuePair<double, int>(x, i)).OrderByDescending(p => p.Key).ToArray();
             foreach(var pair in pairs)
             {
-                outputTextBox.Text += $"[{pair.Value}] : {pair.Key:R}\n";
+                outputTextBox.Text += $"[{pair.Value}] : {pair.Key:F}\n";
             }
         }
 
         private void trainButton_Click (object sender, RoutedEventArgs e)
         {
-            for (int j = 0; j < 50; j++)
+            List<KeyValuePair<double[], double[]>> trainingPairs = new List<KeyValuePair<double[], double[]>>();
+
+            foreach (var path in Directory.GetFiles("data"))
             {
-                foreach (var path in Directory.GetFiles("data"))
-                {
-                    BitmapImage bitmapImage = new BitmapImage(new Uri(Path.GetFullPath(path)));
-                    int nStride = (bitmapImage.PixelWidth * bitmapImage.Format.BitsPerPixel + 7) / 8;
-                    byte[] trainingValues = new byte[bitmapImage.PixelHeight * nStride];
-                    bitmapImage.CopyPixels(trainingValues, nStride, 0);
+                BitmapImage bitmapImage = new BitmapImage(new Uri(Path.GetFullPath(path)));
+                int nStride = (bitmapImage.PixelWidth * bitmapImage.Format.BitsPerPixel + 7) / 8;
+                byte[] trainingValues = new byte[bitmapImage.PixelHeight * nStride];
+                bitmapImage.CopyPixels(trainingValues, nStride, 0);
 
-                    int[] resultValues = new int[10];
-                    for (int i = 0; i < 10; i++)
-                        resultValues[i] = 0;
-                    resultValues[int.Parse(path.Substring(5, 1))] = 1;
+                double[] resultValues = new double[10];
+                for (int i = 0; i < 10; i++)
+                    resultValues[i] = 0;
+                resultValues[int.Parse(path.Substring(5, 1))] = 1;
 
-
-                    _network.Train(trainingValues.Where((x, i) => i % 4 == 1).Select(x => x / 255f).ToArray(),
-                        resultValues.Select(x => (float) x).ToArray());
-                    Console.WriteLine ($@"[IMAGE TRAINING] Image path {path}, Image index [{path.Substring (5, 1)}]...");
-                }
-
-                Console.WriteLine ($@"[PERFORMING TRAINING COMMAND] Index {j} ended. Starting new {j + 1}...");
+                trainingPairs.Add(
+                    new KeyValuePair<double[], double[]>(
+                        trainingValues.Where((x, i) => i % 4 == 1).Select(x => x / 255.0).ToArray(), resultValues));
             }
-            File.WriteAllText ("network_values.dat", _network.ExportJson ());
+            _network.Train(trainingPairs.ToArray(), 0.1);
+        }
+
+        private void trainButton_Copy1_Click (object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog
+            {
+                FileName = "network.dat",
+                Filter = "Dat files (*.dat)|*.dat"
+            };
+
+            if (saveFile.ShowDialog () == true)
+            {
+                _network.ExportToFile (Path.GetFullPath (saveFile.FileName));
+            }
+        }
+
+        private void importButton_Click (object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog
+            {
+                Filter = "Dat files (*.dat)|*.dat"
+            };
+
+            if (openFile.ShowDialog () == true)
+            {
+                _network.ImportFromFile (Path.GetFullPath (openFile.FileName));
+            }
         }
     }
 }

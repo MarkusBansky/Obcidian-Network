@@ -1,11 +1,14 @@
-﻿using System.IO;
-using ObcidiaNetwork.Items;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using ObcidiaNetwork.Controllers;
+using ObcidiaNetwork.IO;
 
 namespace ObcidiaNetwork
 {
     public class NeuralNetwork
     {
-        private readonly NeuronsController _controller;
+        private NeuronsController _controller;
 
         /// <summary>
         /// Creates new neural network object.
@@ -13,28 +16,9 @@ namespace ObcidiaNetwork
         /// <param name="inputsCount">Number of input neurons.</param>
         /// <param name="computationalCount">Number of computational neurons and their biases.</param>
         /// <param name="outputsCount">Number of output neurons.</param>
-        /// <param name="useBiases">Use biases or not.</param>
-        public NeuralNetwork (int inputsCount, int computationalCount, int outputsCount, bool useBiases = false)
+        public NeuralNetwork (int inputsCount, int computationalCount, int outputsCount)
         {
-            _controller = new NeuronsController(inputsCount, computationalCount, outputsCount, useBiases);
-        }
-
-        /// <summary>
-        /// Set values for input neurons that will be used for computing outputs.
-        /// </summary>
-        /// <param name="inputValues">Input values array.</param>
-        public void SetInputValues(float[] inputValues)
-        {
-            _controller.SetInputValues(inputValues);
-        }
-
-        /// <summary>
-        /// Returns output values.
-        /// </summary>
-        /// <returns></returns>
-        public float[] GetOutputValues()
-        {
-            return _controller.GetOutputValues();
+            _controller = new NeuronsController(inputsCount, computationalCount, outputsCount);
         }
 
         /// <summary>
@@ -42,51 +26,49 @@ namespace ObcidiaNetwork
         /// </summary>
         /// <param name="inputValues">Input values.</param>
         /// <returns></returns>
-        public float[] CalculateOutputs (float[] inputValues)
+        public double[] Calculate (double[] inputValues)
         {
-            _controller.SetInputValues (inputValues);
-            _controller.ForwardPropagation ();
-            return _controller.GetOutputValues ();
-        }
-
-        /// <summary>
-        /// Computes the network values and writes results to output neurons.
-        /// </summary>
-        public float[] CalculateOutputs ()
-        {
-            _controller.ForwardPropagation();
-            return _controller.GetOutputValues ();
+            return _controller.PerformCalculations(inputValues);
         }
 
         /// <summary>
         /// Performs training propagation. Firstly sets the input values and after calculates expected output and adjusts weights.
         /// </summary>
-        /// <param name="inputValues">Input values.</param>
-        /// <param name="expectedValues">Expected output values.</param>
-        public void Train (float[] inputValues, float[] expectedValues)
+        /// <param name="trainingData">Data used for training consists of input values and expected output values.</param>
+        /// <param name="cyclesCount">Number of times the network should process this data.</param>
+        public void Train (KeyValuePair<double[], double[]>[] trainingData, int cyclesCount)
         {
-            _controller.SetInputValues(inputValues);
-            _controller.ForwardPropagation ();
-            _controller.BackwardPropagation(expectedValues);
+            _controller.ProcessTraining(trainingData, cyclesCount);
+        }
+
+        /// <summary>
+        /// Performs training propagation. Firstly sets the input values and after calculates expected output and adjusts weights.
+        /// </summary>
+        /// <param name="trainingData">Data used for training consists of input values and expected output values.</param>
+        /// <param name="minimalError">Value for minimal error.</param>
+        public void Train (KeyValuePair<double[], double[]>[] trainingData, double minimalError)
+        {
+            _controller.ProcessTraining (trainingData, minimalError);
         }
 
         /// <summary>
         /// Returns raw json string for export purposes.
         /// </summary>
-        /// <returns></returns>
-        public string ExportJson()
+        /// <param name="pathToFile">Path to file to wich it should be exported.</param>
+        public void ExportToFile(string pathToFile)
         {
-            return _controller.ToString();
+            NnExporter exporter = new NnExporter(_controller);
+            exporter.Export(pathToFile);
         }
 
         /// <summary>
         /// Loads this network from fole. Rewrites all current states and neurons with connections. Be careful using this method.
         /// </summary>
-        /// <param name="reader"></param>
-        public void ImportJson(StreamReader reader)
+        /// <param name="pathToFile">Path to file wich to open</param>
+        public void ImportFromFile(string pathToFile)
         {
-            string json = reader.ReadToEnd();
-            _controller.ParseNetwork(json);
+            NnImporter importer = new NnImporter(_controller);
+            _controller = importer.Import(pathToFile);
         }
     }
 }
