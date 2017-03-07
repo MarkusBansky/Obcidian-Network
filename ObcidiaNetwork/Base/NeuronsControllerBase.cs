@@ -28,15 +28,15 @@ namespace ObcidiaNetwork.Base
             OutputsCount = 0;
         }
 
-        public NeuronsControllerBase (int inputs, int computational, int outputs)
+        public NeuronsControllerBase (int inputs, int computational, int outputs, int biases)
         {
-            NeuronsContainer = new NeuronBase[inputs + computational + computational + outputs];
-            ConnectionsContainer = new List<ConnectionBase>();
-
             InputsCount = inputs;
-            BiasesCount = computational;
+            BiasesCount = biases;
             ComputationalCount = computational;
             OutputsCount = outputs;
+
+            NeuronsContainer = new NeuronBase[InputsCount + BiasesCount + ComputationalCount + OutputsCount];
+            ConnectionsContainer = new List<ConnectionBase>();
             
             for (int i = 0; i < NeuronsContainer.Length; i++)
             {

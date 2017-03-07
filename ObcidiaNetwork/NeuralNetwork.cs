@@ -13,9 +13,10 @@ namespace ObcidiaNetwork
         /// <param name="inputsCount">Number of input neurons.</param>
         /// <param name="computationalCount">Number of computational neurons and their biases.</param>
         /// <param name="outputsCount">Number of output neurons.</param>
-        public NeuralNetwork (int inputsCount, int computationalCount, int outputsCount)
+        /// <param name="useBiases">Use biases or not.</param>
+        public NeuralNetwork (int inputsCount, int computationalCount, int outputsCount, bool useBiases = false)
         {
-            _controller = new NeuronsController(inputsCount, computationalCount, outputsCount);
+            _controller = new NeuronsController(inputsCount, computationalCount, outputsCount, useBiases);
         }
 
         /// <summary>
@@ -39,9 +40,22 @@ namespace ObcidiaNetwork
         /// <summary>
         /// Computes the network values and writes results to output neurons.
         /// </summary>
-        public void CalculateOutputs ()
+        /// <param name="inputValues">Input values.</param>
+        /// <returns></returns>
+        public float[] CalculateOutputs (float[] inputValues)
+        {
+            _controller.SetInputValues (inputValues);
+            _controller.ForwardPropagation ();
+            return _controller.GetOutputValues ();
+        }
+
+        /// <summary>
+        /// Computes the network values and writes results to output neurons.
+        /// </summary>
+        public float[] CalculateOutputs ()
         {
             _controller.ForwardPropagation();
+            return _controller.GetOutputValues ();
         }
 
         /// <summary>
@@ -49,7 +63,7 @@ namespace ObcidiaNetwork
         /// </summary>
         /// <param name="inputValues">Input values.</param>
         /// <param name="expectedValues">Expected output values.</param>
-        public void AdjustWeights (float[] inputValues, float[] expectedValues)
+        public void Train (float[] inputValues, float[] expectedValues)
         {
             _controller.SetInputValues(inputValues);
             _controller.ForwardPropagation ();

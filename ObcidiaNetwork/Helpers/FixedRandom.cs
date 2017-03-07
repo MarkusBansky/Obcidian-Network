@@ -26,14 +26,14 @@ namespace ObcidiaNetwork.Helpers
         }
 
         /// <summary>
-        /// Returns a fixed random double ranged from 0 to 1.
+        /// Returns a fixed random double ranged from -1 to 1.
         /// </summary>
         /// <returns></returns>
         public static double RandomDouble ()
         {
             lock (SyncLock)
             {
-                return Random.NextDouble ();
+                return 2.0 * Random.NextDouble () - 1;
             }
         }
     }
