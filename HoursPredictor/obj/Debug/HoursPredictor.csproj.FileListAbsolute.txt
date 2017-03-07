@@ -1,6 +1,0 @@
-C:\Users\benov\Documents\GitHub\NeuralNetworks\HoursPredictor\bin\Debug\HoursPredictor.exe.config
-C:\Users\benov\Documents\GitHub\NeuralNetworks\HoursPredictor\bin\Debug\HoursPredictor.exe
-C:\Users\benov\Documents\GitHub\NeuralNetworks\HoursPredictor\bin\Debug\HoursPredictor.pdb
-C:\Users\benov\Documents\GitHub\NeuralNetworks\HoursPredictor\obj\Debug\HoursPredictor.csprojResolveAssemblyReference.cache
-C:\Users\benov\Documents\GitHub\NeuralNetworks\HoursPredictor\obj\Debug\HoursPredictor.exe
-C:\Users\benov\Documents\GitHub\NeuralNetworks\HoursPredictor\obj\Debug\HoursPredictor.pdb

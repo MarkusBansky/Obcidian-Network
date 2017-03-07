@@ -6,8 +6,14 @@ using ObcidiaNetwork.IO;
 
 namespace ObcidiaNetwork
 {
+    /// <summary>
+    /// Obcidian Network main class. Creates a new neural network.
+    /// </summary>
     public class NeuralNetwork
     {
+        /// <summary>
+        /// Network controller that holds all network and methods.
+        /// </summary>
         private NeuronsController _controller;
 
         /// <summary>

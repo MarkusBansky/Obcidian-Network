@@ -6,15 +6,30 @@ using ObcidiaNetwork.Controllers;
 
 namespace ObcidiaNetwork.IO
 {
+    /// <summary>
+    /// Creates local importer class.
+    /// </summary>
     internal class NnImporter
     {
+        /// <summary>
+        /// Controller instance.
+        /// </summary>
         private NeuronsController _controller;
 
+        /// <summary>
+        /// Importer constructor.
+        /// </summary>
+        /// <param name="controller"></param>
         public NnImporter (NeuronsController controller)
         {
             _controller = controller;
         }
 
+        /// <summary>
+        /// Imports neural network from specific file.
+        /// </summary>
+        /// <param name="pathToFile"></param>
+        /// <returns></returns>
         public NeuronsController Import (string pathToFile)
         {
             // The encryption vectors

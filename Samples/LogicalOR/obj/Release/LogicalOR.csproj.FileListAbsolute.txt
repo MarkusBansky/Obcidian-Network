@@ -1,8 +1,0 @@
-C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\bin\Release\LogicalOR.exe.config
-C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\bin\Release\LogicalOR.exe
-C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\bin\Release\LogicalOR.pdb
-C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\bin\Release\ObcidiaNetwork.dll
-C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\bin\Release\ObcidiaNetwork.pdb
-C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\obj\Release\LogicalOR.csprojResolveAssemblyReference.cache
-C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\obj\Release\LogicalOR.exe
-C:\Users\benov\Documents\GitHub\NeuralNetworks\Samples\LogicalOR\obj\Release\LogicalOR.pdb

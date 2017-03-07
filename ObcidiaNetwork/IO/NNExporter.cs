@@ -5,15 +5,29 @@ using ObcidiaNetwork.Controllers;
 
 namespace ObcidiaNetwork.IO
 {
+    /// <summary>
+    /// Creates instance of exporter.
+    /// </summary>
     internal class NnExporter
     {
+        /// <summary>
+        /// Controller instance.
+        /// </summary>
         private readonly NeuronsController _controller;
 
+        /// <summary>
+        /// Exporter contructor.
+        /// </summary>
+        /// <param name="controller"></param>
         public NnExporter(NeuronsController controller)
         {
             _controller = controller;
         }
 
+        /// <summary>
+        /// Exports neural network to specific file.
+        /// </summary>
+        /// <param name="pathToFile"></param>
         public void Export(string pathToFile)
         {
             // The encryption vectors

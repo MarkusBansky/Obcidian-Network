@@ -5,20 +5,44 @@ using ObcidiaNetwork.Helpers;
 
 namespace ObcidiaNetwork.Base
 {
+    /// <summary>
+    /// Main neuron class.
+    /// </summary>
     internal class Neuron
     {
+        /// <summary>
+        /// Input connections.
+        /// </summary>
         public List<Connection> InputConnections { get; set; }
 
+        /// <summary>
+        /// Output connections.
+        /// </summary>
         public List<Connection> OutputConnections { get; set; }
 
+        /// <summary>
+        /// Bias value.
+        /// </summary>
         public double Bias { get; set; }
 
+        /// <summary>
+        /// Bias delta value.
+        /// </summary>
         public double BiasDelta { get; set; }
 
+        /// <summary>
+        /// Gradient value.
+        /// </summary>
         public double Gradient { get; set; }
 
+        /// <summary>
+        /// Neuron main output value.
+        /// </summary>
         public double Value { get; set; }
 
+        /// <summary>
+        /// Default contructor.
+        /// </summary>
         public Neuron ()
         {
             InputConnections = new List<Connection> ();
@@ -26,6 +50,10 @@ namespace ObcidiaNetwork.Base
             Bias = FixedRandom.RandomDouble();
         }
 
+        /// <summary>
+        /// Main contructor.
+        /// </summary>
+        /// <param name="inputNeurons">Input neurons to create connections.</param>
         public Neuron (IEnumerable<Neuron> inputNeurons) : this()
 		{
             foreach (var inputNeuron in inputNeurons)
@@ -36,16 +64,30 @@ namespace ObcidiaNetwork.Base
             }
         }
 
+        /// <summary>
+        /// Calculate output value.
+        /// </summary>
+        /// <returns></returns>
         public virtual double CalculateValue ()
         {
             return Value = Sigmoid.Output (InputConnections.Sum (a => a.Weight * a.InputNeuron.Value) + Bias);
         }
 
+        /// <summary>
+        /// Calculate error.
+        /// </summary>
+        /// <param name="target">Target value.</param>
+        /// <returns></returns>
         public double CalculateError (double target)
         {
             return target - Value;
         }
 
+        /// <summary>
+        /// Calculate gradient function value.
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public double CalculateGradient (double? target = null)
         {
             if (target == null)
@@ -54,6 +96,11 @@ namespace ObcidiaNetwork.Base
             return Gradient = CalculateError (target.Value) * Sigmoid.Derivative (Value);
         }
 
+        /// <summary>
+        /// Update neuron connections weights.
+        /// </summary>
+        /// <param name="learnRate"></param>
+        /// <param name="momentum"></param>
         public void UpdateWeights (double learnRate, double momentum)
         {
             var prevDelta = BiasDelta;
@@ -67,13 +114,26 @@ namespace ObcidiaNetwork.Base
             });
         }
 
+        /// <summary>
+        /// Overriden ToString() method.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{nameof(InputConnections)}: {InputConnections}, {nameof(OutputConnections)}: {OutputConnections}, {nameof(Bias)}: {Bias}, {nameof(BiasDelta)}: {BiasDelta}, {nameof(Gradient)}: {Gradient}, {nameof(Value)}: {Value}";
         }
 
+        /// <summary>
+        /// Equality comparer class.
+        /// </summary>
         private sealed class NeuronEqualityComparer : IEqualityComparer<Neuron>
         {
+            /// <summary>
+            /// Overriden equals method.
+            /// </summary>
+            /// <param name="x"></param>
+            /// <param name="y"></param>
+            /// <returns></returns>
             public bool Equals(Neuron x, Neuron y)
             {
                 if (ReferenceEquals(x, y)) return true;
@@ -83,6 +143,11 @@ namespace ObcidiaNetwork.Base
                 return Equals(x.InputConnections, y.InputConnections) && Equals(x.OutputConnections, y.OutputConnections) && x.Bias.Equals(y.Bias) && x.BiasDelta.Equals(y.BiasDelta) && x.Gradient.Equals(y.Gradient) && x.Value.Equals(y.Value);
             }
 
+            /// <summary>
+            /// Overriden get hash code method.
+            /// </summary>
+            /// <param name="obj"></param>
+            /// <returns></returns>
             public int GetHashCode(Neuron obj)
             {
                 unchecked
@@ -98,13 +163,26 @@ namespace ObcidiaNetwork.Base
             }
         }
 
+        /// <summary>
+        /// Equality comparer instance.
+        /// </summary>
         public static IEqualityComparer<Neuron> NeuronComparer { get; } = new NeuronEqualityComparer();
 
+        /// <summary>
+        /// New equals method.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         protected bool Equals(Neuron other)
         {
             return Bias.Equals(other.Bias) && BiasDelta.Equals(other.BiasDelta) && Gradient.Equals(other.Gradient) && Value.Equals(other.Value);
         }
 
+        /// <summary>
+        /// Overriden equals method.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
@@ -113,6 +191,10 @@ namespace ObcidiaNetwork.Base
             return Equals((Neuron) obj);
         }
 
+        /// <summary>
+        /// Overriden get hash code method.
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             unchecked
@@ -125,11 +207,23 @@ namespace ObcidiaNetwork.Base
             }
         }
 
+        /// <summary>
+        /// Equality operator.
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static bool operator ==(Neuron left, Neuron right)
         {
             return Equals(left, right);
         }
 
+        /// <summary>
+        /// Non-equality operator.
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static bool operator !=(Neuron left, Neuron right)
         {
             return !Equals(left, right);

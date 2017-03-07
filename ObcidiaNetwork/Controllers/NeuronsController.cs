@@ -4,13 +4,29 @@ using System.Linq;
 
 namespace ObcidiaNetwork.Controllers
 {
+    /// <summary>
+    /// Neurons controller extention class.
+    /// </summary>
     internal class NeuronsController : NeuronsControllerBase
     {
+        /// <summary>
+        /// Controller contructor.
+        /// </summary>
+        /// <param name="inputSize">Number of input neurons.</param>
+        /// <param name="hiddenSize">Number of hidden neurons.</param>
+        /// <param name="outputSize">Number of output neurons.</param>
+        /// <param name="learnRate">Learning rate (0.3 default)</param>
+        /// <param name="momentum">Momentum (0.9 default)</param>
         public NeuronsController (int inputSize, int hiddenSize, int outputSize, double? learnRate = null, double? momentum = null) : base(inputSize, hiddenSize, outputSize, learnRate, momentum)
         {
             Console.WriteLine($"[Created New Neural Network Controller]");
         }
 
+        /// <summary>
+        /// Processes the training algorithm by propagations count.
+        /// </summary>
+        /// <param name="data">Training data.</param>
+        /// <param name="propagationsCount">Number of propagations to loop.</param>
         public void ProcessTraining(KeyValuePair<double[], double[]>[] data, int propagationsCount)
         {
             for (var i = 0; i < propagationsCount; i++)
@@ -24,6 +40,11 @@ namespace ObcidiaNetwork.Controllers
             }
         }
 
+        /// <summary>
+        /// Processes the training algorithm by minimal error.
+        /// </summary>
+        /// <param name="data">Training data.</param>
+        /// <param name="minimalErrorValue">value of minimal error.</param>
         public void ProcessTraining (KeyValuePair<double[], double[]>[] data, double minimalErrorValue)
         {
             double error = 1.0;
@@ -45,12 +66,21 @@ namespace ObcidiaNetwork.Controllers
             }
         }
 
+        /// <summary>
+        /// Performs calculations.
+        /// </summary>
+        /// <param name="inputs">Input values.</param>
+        /// <returns></returns>
         public double[] PerformCalculations(double[] inputs)
         {
             ForwardPropagate (inputs);
             return OutputLayer.Select (a => a.Value).ToArray ();
         }
 
+        /// <summary>
+        /// Performs forward propagation.
+        /// </summary>
+        /// <param name="inputValues">Input values.</param>
         public void ForwardPropagate(double[] inputValues)
         {
             int index = 0;
@@ -59,6 +89,10 @@ namespace ObcidiaNetwork.Controllers
             OutputLayer.ForEach (a => a.CalculateValue ());
         }
 
+        /// <summary>
+        /// Performs backward propagation.
+        /// </summary>
+        /// <param name="trainingResults">Training result values.</param>
         public void BackwardPropagate(double[] trainingResults)
         {
             int index = 0;
