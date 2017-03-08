@@ -1,4 +1,4 @@
-<img src=https://www.dropbox.com/s/lqmgx5oakts237s/Artboard%201%400.5x.png?dl=1" height="250x">
+<img src=https://www.afgor.com/wp-content/uploads/2017/03/Artboard-1@0.5x-300x300.png" height="250x">
 # **Obcidian Network** - a simple neural network library
 [![Issue Count](https://codeclimate.com/github/MarkusBansky/Obcidian-Network/badges/issue_count.svg)](https://codeclimate.com/github/MarkusBansky/Obcidian-Network)
 
