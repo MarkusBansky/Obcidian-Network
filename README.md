@@ -1,33 +1,30 @@
-![logo](https://www.dropbox.com/s/lqmgx5oakts237s/Artboard%201%400.5x.png?dl=1)
+<img src=https://www.dropbox.com/s/lqmgx5oakts237s/Artboard%201%400.5x.png?dl=1" height="250x">
 # **Obcidian Network** - a simple neural network library
 [![Issue Count](https://codeclimate.com/github/MarkusBansky/Obcidian-Network/badges/issue_count.svg)](https://codeclimate.com/github/MarkusBansky/Obcidian-Network)
-[![buddy pipeline](https://app.buddy.works/afgor/neuralnetworks/pipelines/pipeline/43558/badge.svg?token=38a71b28199405f84b29bbcf4cee2f85f9c914330b0a69437c1fe497bcd05c3c "buddy pipeline")](https://app.buddy.works/afgor/neuralnetworks/pipelines/pipeline/43558)
 
 **Obcidian Network** is a C# library that would help you create your own neural networks.
 
 You can install **Obcidian Network** from **NuGet** package manager.
  > PM> `Install-Package ObcidiaNetwork`
 
-If you are an enthusiast or a student and want to learn how the neural networks work then this is a good solution for you.
+**Nuget Package** does not include the latest version of neural network. It uses only builds from *master* branch. If you want the latest release of neural network, please search it on github in prerelase.
 
-Everything is very simple and easy to instal. You can instal *ObcidiaNetwork* from *NuGet* and use it in any C# project you can.
+If you are an enthusiast or a student and want to learn how the neural networks work then this is a good solution for you. Everything is very simple and easy to instal. You can instal *ObcidiaNetwork* from *NuGet* and use it in any C# project you can.
 
-It has some major fetures:
-
+It has some major features:
   - Multiple input, computational, biases, output neurons
   - Simple neural connections
   - Optimized algorithm
   - Low memory usage
-  - High performance, as network is stored in RAM
-  - Visual debugger
-  - JSON scheme export
+  - High performance
+  - File import / export
+  - Automated training
+  
+### What branch is for
 
-For future I plan:
-  - Remap connections
-  - Dynamicaly create connections that affect outputs for best result
-  - Dynamicalt create neurons for better results
-  - Automated trainings
-  - Better performance
+- **master** - the main branch of this project, it contains only strong releases.
+- **developer** - branch for latest stable releases.
+- **nightly** - branch that is updating every night :D
 
 ### How to start
 
