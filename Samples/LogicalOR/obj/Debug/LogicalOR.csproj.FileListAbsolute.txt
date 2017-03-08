@@ -1,8 +1,0 @@
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Samples\LogicalOR\bin\Debug\LogicalOR.exe.config
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Samples\LogicalOR\bin\Debug\LogicalOR.exe
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Samples\LogicalOR\bin\Debug\LogicalOR.pdb
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Samples\LogicalOR\bin\Debug\Network.dll
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Samples\LogicalOR\bin\Debug\Network.pdb
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Samples\LogicalOR\obj\Debug\LogicalOR.csprojResolveAssemblyReference.cache
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Samples\LogicalOR\obj\Debug\LogicalOR.exe
-C:\Users\benov\onedrive\документи\visual studio 15\Projects\NauralNetworks\Samples\LogicalOR\obj\Debug\LogicalOR.pdb
