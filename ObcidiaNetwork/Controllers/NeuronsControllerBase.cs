@@ -77,7 +77,7 @@ namespace ObcidiaNetwork.Controllers
         /// <summary>
         /// Calculates error.
         /// </summary>
-        /// <param name="targets">TTarget values.</param>
+        /// <param name="targets">Target values.</param>
         /// <returns></returns>
         public double CalculateError (params double[] targets)
         {

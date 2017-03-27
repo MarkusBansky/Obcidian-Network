@@ -46,7 +46,11 @@ namespace ObcidiaNetwork.Base
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{nameof(InputNeuron)}: {InputNeuron}, {nameof(OutputNeuron)}: {OutputNeuron}, {nameof(Weight)}: {Weight}, {nameof(WeightDelta)}: {WeightDelta}";
+            return 
+                $" {nameof(InputNeuron)}: {InputNeuron}," +
+                $" {nameof(OutputNeuron)}: {OutputNeuron}," +
+                $" {nameof(Weight)}: {Weight}," +
+                $" {nameof(WeightDelta)}: {WeightDelta}";
         }
 
         /// <summary>

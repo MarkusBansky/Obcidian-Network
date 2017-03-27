@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObcidiaNetwork", "ObcidiaNetwork\ObcidiaNetwork.csproj", "{277CDCD3-9221-469E-8317-3B68AB2CA8C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumbersIdentification", "..\..\..\OneDrive\Розробки\Neural Network\NumbersIdentification\NumbersIdentification.csproj", "{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,11 +39,28 @@ Global
 		{277CDCD3-9221-469E-8317-3B68AB2CA8C4}.Release|x64.Build.0 = Release|Any CPU
 		{277CDCD3-9221-469E-8317-3B68AB2CA8C4}.Release|x86.ActiveCfg = Release|Any CPU
 		{277CDCD3-9221-469E-8317-3B68AB2CA8C4}.Release|x86.Build.0 = Release|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Debug|ARM.Build.0 = Debug|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Debug|x64.Build.0 = Debug|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Debug|x86.Build.0 = Debug|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Release|ARM.ActiveCfg = Release|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Release|ARM.Build.0 = Release|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Release|x64.ActiveCfg = Release|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Release|x64.Build.0 = Release|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Release|x86.ActiveCfg = Release|Any CPU
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{277CDCD3-9221-469E-8317-3B68AB2CA8C4} = {0B0F672C-A83A-4868-A8CC-8C32648E026A}
+		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B} = {508AD544-E44A-430E-A5CC-BF43856176B3}
 	EndGlobalSection
 EndGlobal

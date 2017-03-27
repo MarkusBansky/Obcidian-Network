@@ -1,6 +1,6 @@
 C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork\bin\Debug\ObcidiaNetwork.dll
 C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork\bin\Debug\ObcidiaNetwork.pdb
-C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork\obj\Debug\ObcidiaNetwork.csprojResolveAssemblyReference.cache
 C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork\obj\Debug\ObcidiaNetwork.dll
 C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork\obj\Debug\ObcidiaNetwork.pdb
 C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork\bin\Debug\ObcidiaNetwork.xml
+C:\Users\benov\Documents\GitHub\NeuralNetworks\ObcidiaNetwork\obj\Debug\ObcidiaNetwork.csprojResolveAssemblyReference.cache

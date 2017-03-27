@@ -120,7 +120,13 @@ namespace ObcidiaNetwork.Base
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{nameof(InputConnections)}: {InputConnections}, {nameof(OutputConnections)}: {OutputConnections}, {nameof(Bias)}: {Bias}, {nameof(BiasDelta)}: {BiasDelta}, {nameof(Gradient)}: {Gradient}, {nameof(Value)}: {Value}";
+            return 
+                $" {nameof(InputConnections)}: {InputConnections}," +
+                $" {nameof(OutputConnections)}: {OutputConnections}," +
+                $" {nameof(Bias)}: {Bias}," +
+                $" {nameof(BiasDelta)}: {BiasDelta}," +
+                $" {nameof(Gradient)}: {Gradient}," +
+                $" {nameof(Value)}: {Value}";
         }
 
         /// <summary>

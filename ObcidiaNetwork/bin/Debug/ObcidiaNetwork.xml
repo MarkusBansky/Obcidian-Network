@@ -311,7 +311,7 @@
             <summary>
             Calculates error.
             </summary>
-            <param name="targets">TTarget values.</param>
+            <param name="targets">Target values.</param>
             <returns></returns>
         </member>
         <member name="T:ObcidiaNetwork.Controllers.NeuronsController">
