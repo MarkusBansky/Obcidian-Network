@@ -13,12 +13,13 @@ namespace ObcidiaNetwork.Controllers
         /// <summary>
         /// Controller contructor.
         /// </summary>
+        /// <param name="layersCount">Number of layer of computational neurons in the network.</param>
         /// <param name="inputSize">Number of input neurons.</param>
         /// <param name="hiddenSize">Number of hidden neurons.</param>
         /// <param name="outputSize">Number of output neurons.</param>
         /// <param name="learnRate">Learning rate (0.3 default)</param>
         /// <param name="momentum">Momentum (0.9 default)</param>
-        public NeuronsController (int inputSize, int hiddenSize, int outputSize, double? learnRate = null, double? momentum = null) : base(inputSize, hiddenSize, outputSize, learnRate, momentum)
+        public NeuronsController (int layersCount, int inputSize, int hiddenSize, int outputSize, double? learnRate = null, double? momentum = null) : base(layersCount, inputSize, hiddenSize, outputSize, learnRate, momentum)
         {
             Console.WriteLine($"[Created New Neural Network Controller]");
         }
@@ -86,7 +87,7 @@ namespace ObcidiaNetwork.Controllers
         {
             int index = 0;
             InputLayer.ForEach (a => a.Value = inputValues[index++]);
-            HiddenLayer.ForEach (a => a.CalculateValue ());
+            HiddenLayers.ForEach (l => l.Neurons.ForEach(n => n.CalculateValue()));
             OutputLayer.ForEach (a => a.CalculateValue ());
         }
 
@@ -98,8 +99,12 @@ namespace ObcidiaNetwork.Controllers
         {
             int index = 0;
             OutputLayer.ForEach (a => a.CalculateGradient (trainingResults[index++]));
-            HiddenLayer.ForEach (a => a.CalculateGradient ());
-            HiddenLayer.ForEach (a => a.UpdateWeights (LearnRate, Momentum));
+
+            for (int i = HiddenLayers.Count - 1; i > 0; i--)
+                HiddenLayers[i].Neurons.ForEach(a => a.CalculateGradient());
+            for (int i = HiddenLayers.Count - 1; i > 0; i--)
+                HiddenLayers[i].Neurons.ForEach (a => a.UpdateWeights (LearnRate, Momentum));
+
             OutputLayer.ForEach (a => a.UpdateWeights (LearnRate, Momentum));
         }
     }

@@ -282,7 +282,7 @@
             List of input neurons.
             </summary>
         </member>
-        <member name="P:ObcidiaNetwork.Controllers.NeuronsControllerBase.HiddenLayer">
+        <member name="P:ObcidiaNetwork.Controllers.NeuronsControllerBase.HiddenLayers">
             <summary>
             List of hidden layer neurons.
             </summary>
@@ -297,10 +297,11 @@
             Default constructor.
             </summary>
         </member>
-        <member name="M:ObcidiaNetwork.Controllers.NeuronsControllerBase.#ctor(System.Int32,System.Int32,System.Int32,System.Nullable{System.Double},System.Nullable{System.Double})">
+        <member name="M:ObcidiaNetwork.Controllers.NeuronsControllerBase.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Nullable{System.Double},System.Nullable{System.Double})">
             <summary>
             Main contructor.
             </summary>
+            <param name="layersCount"></param>
             <param name="inputSize"></param>
             <param name="hiddenSize"></param>
             <param name="outputSize"></param>
@@ -319,10 +320,11 @@
             Neurons controller extention class.
             </summary>
         </member>
-        <member name="M:ObcidiaNetwork.Controllers.NeuronsController.#ctor(System.Int32,System.Int32,System.Int32,System.Nullable{System.Double},System.Nullable{System.Double})">
+        <member name="M:ObcidiaNetwork.Controllers.NeuronsController.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Nullable{System.Double},System.Nullable{System.Double})">
             <summary>
             Controller contructor.
             </summary>
+            <param name="layersCount">Number of layer of computational neurons in the network.</param>
             <param name="inputSize">Number of input neurons.</param>
             <param name="hiddenSize">Number of hidden neurons.</param>
             <param name="outputSize">Number of output neurons.</param>
@@ -381,6 +383,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="F:ObcidiaNetwork.Helpers.NeuronsLayer.Neurons">
+            <summary>
+            Neurons container for this layer
+            </summary>
+        </member>
+        <member name="M:ObcidiaNetwork.Helpers.NeuronsLayer.#ctor(System.Int32,System.Collections.Generic.List{ObcidiaNetwork.Base.Neuron})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="numberOfNeurons"></param>
+            <param name="lastNeurons"></param>
+        </member>
         <member name="T:ObcidiaNetwork.IO.NnExporter">
             <summary>
             Creates instance of exporter.
@@ -436,10 +450,11 @@
             Network controller that holds all network and methods.
             </summary>
         </member>
-        <member name="M:ObcidiaNetwork.NeuralNetwork.#ctor(System.Int32,System.Int32,System.Int32)">
+        <member name="M:ObcidiaNetwork.NeuralNetwork.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
             Creates new neural network object.
             </summary>
+            <param name="layersCount">Number of hidden layers in network.</param>
             <param name="inputsCount">Number of input neurons.</param>
             <param name="computationalCount">Number of computational neurons and their biases.</param>
             <param name="outputsCount">Number of output neurons.</param>

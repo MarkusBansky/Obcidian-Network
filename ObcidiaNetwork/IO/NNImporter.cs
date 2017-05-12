@@ -44,25 +44,31 @@ namespace ObcidiaNetwork.IO
             using (var reader = new StreamReader (encryptedOutputStream))
             {
                 var inputsCount = int.Parse(reader.ReadLine());
-                var hiddenCount = int.Parse (reader.ReadLine ());
+                var layersCount = int.Parse (reader.ReadLine ());
+                var hiddenCount = int.Parse(reader.ReadLine());
                 var outputCount = int.Parse (reader.ReadLine ());
 
-                _controller = new NeuronsController(inputsCount, hiddenCount, outputCount);
+                _controller = new NeuronsController(layersCount, inputsCount, hiddenCount, outputCount);
 
-                for (var n = 0; n < hiddenCount; n++)
+                for (var l = 0; l < layersCount; l++)
                 {
-                    var neuronInfoLine = reader.ReadLine().Split('{')[1];
-                    var neuronInfoStrings = neuronInfoLine.Split('}')[0].Split(':');
-
-                    _controller.HiddenLayer[n].Bias = double.Parse(neuronInfoStrings[0]);
-                    _controller.HiddenLayer[n].BiasDelta = double.Parse (neuronInfoStrings[1]);
-                    _controller.HiddenLayer[n].Gradient = double.Parse (neuronInfoStrings[2]);
-
-                    var connectionsStrings = neuronInfoLine.Split('}')[1].Split(';');
-                    for (var c = 0; c < connectionsStrings.Length - 1; c++)
+                    for (var n = 0; n < hiddenCount; n++)
                     {
-                        _controller.HiddenLayer[n].InputConnections[c].Weight = double.Parse(connectionsStrings[c].Split(':')[0]);
-                        _controller.HiddenLayer[n].InputConnections[c].WeightDelta = double.Parse (connectionsStrings[c].Split (':')[1]);
+                        var neuronInfoLine = reader.ReadLine().Split('{')[1];
+                        var neuronInfoStrings = neuronInfoLine.Split('}')[0].Split(':');
+
+                        _controller.HiddenLayers[l].Neurons[n].Bias = double.Parse(neuronInfoStrings[0]);
+                        _controller.HiddenLayers[l].Neurons[n].BiasDelta = double.Parse(neuronInfoStrings[1]);
+                        _controller.HiddenLayers[l].Neurons[n].Gradient = double.Parse(neuronInfoStrings[2]);
+
+                        var connectionsStrings = neuronInfoLine.Split('}')[1].Split(';');
+                        for (var c = 0; c < connectionsStrings.Length - 1; c++)
+                        {
+                            _controller.HiddenLayers[l].Neurons[n].InputConnections[c].Weight =
+                                double.Parse(connectionsStrings[c].Split(':')[0]);
+                            _controller.HiddenLayers[l].Neurons[n].InputConnections[c].WeightDelta =
+                                double.Parse(connectionsStrings[c].Split(':')[1]);
+                        }
                     }
                 }
 

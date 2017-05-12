@@ -41,15 +41,19 @@ namespace ObcidiaNetwork.IO
             using (var writer = new StreamWriter (encryptedOutputStream))
             {
                 writer.WriteLine (_controller.InputLayer.Count);
-                writer.WriteLine (_controller.HiddenLayer.Count);
+                writer.WriteLine (_controller.HiddenLayers.Count);
+                writer.WriteLine (_controller.HiddenLayers[0].Neurons.Count);
                 writer.WriteLine (_controller.OutputLayer.Count);
 
-                foreach (var n in _controller.HiddenLayer)
+                foreach (var l in _controller.HiddenLayers)
                 {
-                    writer.Write("{" + n.Bias + ":" + n.BiasDelta + ":" + n.Gradient + "}");
-                    foreach (var c in n.InputConnections)
-                        writer.Write(c.Weight + ":" + c.WeightDelta + ";");
-                    writer.WriteLine ();
+                    foreach (var n in l.Neurons)
+                    {
+                        writer.Write("{" + n.Bias + ":" + n.BiasDelta + ":" + n.Gradient + "}");
+                        foreach (var c in n.InputConnections)
+                            writer.Write(c.Weight + ":" + c.WeightDelta + ";");
+                        writer.WriteLine();
+                    }
                 }
 
                 writer.WriteLine();

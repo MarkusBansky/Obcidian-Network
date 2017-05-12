@@ -43,6 +43,7 @@
     <Compile Include="Helpers\FixedRandom.cs" />
     <Compile Include="Controllers\NeuronsController.cs" />
     <Compile Include="Base\Sigmoid.cs" />
+    <Compile Include="Helpers\NeuronsLayer.cs" />
     <Compile Include="IO\NNExporter.cs" />
     <Compile Include="IO\NNImporter.cs" />
     <Compile Include="NeuralNetwork.cs" />

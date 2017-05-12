@@ -17,12 +17,13 @@ namespace ObcidiaNetwork
         /// <summary>
         /// Creates new neural network object.
         /// </summary>
+        /// <param name="layersCount">Number of hidden layers in network.</param>
         /// <param name="inputsCount">Number of input neurons.</param>
         /// <param name="computationalCount">Number of computational neurons and their biases.</param>
         /// <param name="outputsCount">Number of output neurons.</param>
-        public NeuralNetwork (int inputsCount, int computationalCount, int outputsCount)
+        public NeuralNetwork (int layersCount, int inputsCount, int computationalCount, int outputsCount)
         {
-            _controller = new NeuronsController(inputsCount, computationalCount, outputsCount);
+            _controller = new NeuronsController(layersCount, inputsCount, computationalCount, outputsCount);
         }
 
         /// <summary>
