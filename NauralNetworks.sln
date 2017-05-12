@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{508AD544-E44A-430E-A5CC-BF43856176B3}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObcidiaNetwork", "ObcidiaNetwork\ObcidiaNetwork.csproj", "{277CDCD3-9221-469E-8317-3B68AB2CA8C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumbersIdentification", "..\..\..\OneDrive\Розробки\Neural Network\NumbersIdentification\NumbersIdentification.csproj", "{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestOfYours", "..\..\..\OneDrive\Розробки\BestOfYours\BestOfYours.csproj", "{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,22 @@ Global
 		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Release|x64.Build.0 = Release|Any CPU
 		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Release|x86.ActiveCfg = Release|Any CPU
 		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B}.Release|x86.Build.0 = Release|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Debug|x64.Build.0 = Debug|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Debug|x86.Build.0 = Debug|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Release|ARM.Build.0 = Release|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Release|x64.ActiveCfg = Release|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Release|x64.Build.0 = Release|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Release|x86.ActiveCfg = Release|Any CPU
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +80,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{277CDCD3-9221-469E-8317-3B68AB2CA8C4} = {0B0F672C-A83A-4868-A8CC-8C32648E026A}
 		{0883689B-9CA0-4E2A-A948-175B6ED5FF6B} = {508AD544-E44A-430E-A5CC-BF43856176B3}
+		{ACA5AFF7-13BC-4FA6-8916-173BCAF43B2E} = {508AD544-E44A-430E-A5CC-BF43856176B3}
 	EndGlobalSection
 EndGlobal
